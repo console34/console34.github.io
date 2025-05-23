@@ -4,30 +4,35 @@ import { t } from "i18next";
 
 const faqs = [
 	{
-		title: "What is this?",
-		description: "This is a astro template that uses tailwindcss and alpinejs",
+		title: "What is ConSOLE?",
+		description: "ConSOLE stands for Conference of the Student Organization of Linguistics in Europe. It is an annual conference specifically aimed at providing a platform for graduate (mainly PhD and advanced MA) students working in theoretical linguistics to present their research. The conference covers a wide range of topics within theoretical linguistics, including syntax, semantics, phonology, morphology, and related areas.",
 	},
 	{
-		title: "Why alpinejs? Why don't just use js?",
+		title: "What are the key features of ConSOLE?",
 		description:
-			"Alpine js is less than 17kb and it make javascript very fast to write, there are also various open source ready to use components like https://js.hyperui.dev, https://www.alpinetoolbox.com/examples, https://alpinejs.dev/components#components",
-	},
-	{
-		title: "But I don't need alpine js, can I remove it?",
-		description: `Of course, but some components use it and you'll have to edit these, more specifically you ll have to: <br/>
+		`Participating at ConSOLE comes with the following benefits:
 					<ul style="list-style: inside;">
-						<li>First remove the package with the command <code>npm unistall @astrojs/alpinejs @types/alpinejs alpinejs</code></li>
-						<li>Adjust all components that uses alpine js: <code>faq.astro</code>, <code>themeselector.astro</code>, <code>navbar.astro</code></li>
-					</ul>`,
+						<li>The opportunity to present your research in a supportive environment;</li>
+						<li>Receive feedback from peers and faculty members;</li>
+						<li>Network with other early-career linguists;</li>
+						<li>Learn about cutting-edge research in theoretical linguistics;</li>
+						<li>Publish your work in the yearly proceedings volume.</li>
+					</ul>`
+			,
 	},
 	{
-		title: "Can I remove also tailwidcss?",
+		title: "How can I submit?",
 		description:
-			"I mean, you can, but you'll have to basically rewrite all the template, so I don't recommend it",
+			"You can review the submission guidelines and procedure at this link.",
 	},
 	{
-		title: "I don't need multiple language, how can I remove it?",
-		description: `One way is to simply keep one language and remove the selector from the footer but in order to fully remove the localization you have to: <br/>
+		title: "Can I submit both to the main session and the workshop?",
+		description:
+			"Yes, with the general restriction of submitting in total up to one single-authored abstract and a co-authored abstract, or two co-author abstracts.",
+	},
+	{
+		title: "How are the travel grants assigned?",
+		description: `Travel grants are assigned based on the following criteria, read more at the dedicated page of this site:
 					<ul style="list-style: inside;">
 						<li>Remove the i18next pacakage <code>npm unistall astro-i18next</code></li>
 						<li>Remove <code>astro-i18next.config.mjs</code> file</li>
@@ -37,42 +42,36 @@ const faqs = [
 					</ul>`,
 	},
 	{
-		title: "I don't need dark mode, how can I remove it?",
+		title: "How do I register?",
 		description:
-			"Dark mode is embedded into tailwindcss, so you can't remove it, but you can remove the switch from the navbar",
+			"Registration will open this winter.",
+	},
+	{
+		title: "Is it possible to participate or present to the conference online?",
+		description:
+			"No, ConSOLE34 will be a on-site event only.",
+	},
+	{
+		title: "Will the proceedings be available for both the main session and the workshop?",
+		description:
+			"Yes, every author who presents at ConSOLE34 (both main session and workshop) will have the opportunity to have their paper published in the series of the Student Organization of Linguistics in Europe (SOLE), which will be available online around December 2026.",
+	},
+	{
+		title: "How do I get to Pavia?",
+		description:
+			"You can find the relevant information about travelling to Pavia on the dedicated page of this site. If we missed to cover a point and you have a question for us, don't hesitate to mail us, or to contact one of the organizers (chose your fighter).",
 	},
 	{
 		title:
-			"How can I configure the Sveltia CMS authentication with cloudflare?",
-		description: `To configure Sveltia CMS with cloudflare follow this guide <a href="https://github.com/sveltia/sveltia-cms" target="_blank">https://github.com/sveltia/sveltia-cms</a>`,
-	},
-	{
-		title: "How can I configure the decap CMS authentication with netlify?",
-		description: `To configure decap CMS with netlify do the followings:
-					<ul style="list-style: inside;">
-						<li>Change NetlifyCMS config <code>config.backend.name</code> to git-gateway</li>
-						<li>Use integrated NetlifyCMS auth <a href="https://decapcms.org/docs/git-gateway-backend/#git-gateway-with-netlify" target="_blank">https://decapcms.org/docs/git-gateway-backend/#git-gateway-with-netlify</a></li>
-					</ul>`,
-	},
-	{
-		title: "How can I change the localization languages?",
-		description: `In order to change the languages you have to change the languages in the file <code>astro-i18next.config.mjs</code> and in the netlifyCMS configuration on the file <code>astro.config.mjs</code> <br/>
-					Then change the locales files folders in <code>public/locales</code>`,
-	},
-	{
-		title: "What are the files in the funciotn folder used for?",
-		description: `These are cloudflare function that are used for the authentication to the decap CMS`,
-	},
-	{
-		title: "The build on cloudflare keep failing, why?",
-		description: `One of the problem could be that the Build system version is setted to version 1, make sure that version 2 is selected`,
+			"Can I host next editions of ConSOLE at my institution?",
+		description: `Of course! Contact the SOLE board, they will be thrilled in receiving your candidacy!`,
 	},
 ];
 ---
 
 <div class="mx-auto max-w-5xl px-6 py-24 sm:py-36 lg:px-8 lg:py-52 dark:bg-stone-950">
 	<div class="mx-auto divide-y divide-gray-900/10 dark:divide-gray-100/10">
-		<h2 class="text-2xl font-bold leading-10 tracking-tight text-gray-900 dark:text-white">{t("faq.title")}</h2>
+		<h2 class="text-2xl font-bold leading-10 tracking-tight text-gray-900 dark:text-white">{t("Frequently Asked Questions:")}</h2>
 		<dl class="mt-10 space-y-6 divide-y divide-gray-900/10 dark:divide-gray-100/10">
 			{
 				faqs.map((faq) => (

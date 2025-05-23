@@ -1,0 +1,308 @@
+---
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+import { changeLanguage } from "i18next";
+
+changeLanguage("en");
+
+// Define available fields with their color codes
+const fields = [
+  { id: "syntax", name: "Syntax", color: "bg-blue-500" },
+  { id: "semantics", name: "Semantics", color: "bg-purple-500" },
+  { id: "language-acquisition", name: "Language Acquisition", color: "bg-green-500" },
+  { id: "computational-ling", name: "Computational Linguistics", color: "bg-red-500" },
+  { id: "phonology", name: "Phonology", color: "bg-yellow-500" },
+  { id: "psycholing", name: "Psycholinguistics", color: "bg-pink-500" },
+  { id: "corpus-ling", name: "Corpus Linguistics", color: "bg-indigo-500" },
+];
+
+const programData = [
+  {
+    date: "28 January",
+    presentations: [
+      { 
+        image: "public/images/programme/9-10.png", 
+        affiliation: "9-10", 
+        title: "Morning Session",
+        field: ["syntax", "language-acquisition"]
+      },
+      { 
+        image: "public/images/programme/10-11.png", 
+        affiliation: "10-11", 
+        title: "Keynote Speech",
+        field: ["semantics", "computational-ling"]
+      },
+      { 
+        image: "public/images/programme/11-12.png", 
+        affiliation: "11-12", 
+        title: "Panel Discussion",
+        field: ["psycholing", "corpus-ling"]
+      },
+      { 
+        image: "public/images/programme/13-14.png", 
+        affiliation: "13-14", 
+        title: "Afternoon Session",
+        field: ["phonology", "syntax"]
+      },
+      { 
+        image: "title_slide2.jpg", 
+        affiliation: "MIT", 
+        title: "Research Presentation",
+        field: ["computational-ling", "corpus-ling"]
+      },
+      { 
+        image: "title_slide2.jpg", 
+        affiliation: "MIT", 
+        title: "Case Study",
+        field: ["language-acquisition", "psycholing"]
+      },
+      { 
+        image: "title_slide2.jpg", 
+        affiliation: "MIT", 
+        title: "Workshop",
+        field: ["semantics", "phonology"]
+      },
+      { 
+        image: "title_slide2.jpg", 
+        affiliation: "MIT", 
+        title: "Q&A Session",
+        field: ["syntax", "computational-ling"]
+      },
+      { 
+        image: "title_slide2.jpg", 
+        affiliation: "MIT", 
+        title: "Closing Remarks",
+        field: ["corpus-ling", "psycholing"]
+      },
+    ],
+  },
+  {
+    date: "5 February",
+    presentations: [
+      { 
+        image: "title_slide3.jpg", 
+        affiliation: "Oxford", 
+        title: "Special Guest Lecture",
+        field: ["syntax", "semantics"]
+      },
+      { 
+        image: "title_slide4.jpg", 
+        affiliation: "Harvard", 
+        title: "Research Showcase",
+        field: ["language-acquisition", "phonology"]
+      },
+    ],
+  },
+  {
+    date: "12 March",
+    presentations: [
+      { 
+        image: "title_slide5.jpg", 
+        affiliation: "UCL", 
+        title: "Innovation Talk",
+        field: ["computational-ling", "corpus-ling"]
+      },
+      { 
+        image: "title_slide6.jpg", 
+        affiliation: "UCLA", 
+        title: "Future Trends",
+        field: ["psycholing", "syntax"]
+      },
+      { 
+        image: "title_slide7.jpg", 
+        affiliation: "Max Planck Institute", 
+        title: "Closing Ceremony",
+        field: ["semantics", "language-acquisition"]
+      },
+    ],
+  },
+];
+
+// Use the camino.jpeg image for the hero section
+const heroImage = "/images/camino.jpg";
+---
+
+<Layout title="Conference Program">
+  <div class="min-h-screen bg-stone-950 relative">
+    <!-- Hero Section -->
+    <div class="relative h-[60vh] w-full overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-stone-950/50 to-stone-950 z-10"></div>
+      
+      <img
+        src={heroImage}
+        alt="Conference Program Hero"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute bottom-0 left-0 right-0 p-8 z-20">
+        <Container>
+          <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Conference Program</h1>
+          <p class="text-xl text-gray-300">Explore our daily lineup of presentations</p>
+        </Container>
+      </div>
+    </div>
+
+    <Container>
+      <!-- Filter Section -->
+      <div class="py-8">
+        <h2 class="text-2xl font-bold text-white mb-4">Filter by domain</h2>
+        <div class="flex flex-wrap gap-2" id="filter-container">
+          {fields.map((field) => (
+            <button 
+              class={`filter-btn ${field.color} text-white px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:opacity-80`}
+              data-field={field.id}
+            >
+              {field.name}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="space-y-16 py-12 bg-stone-950 rounded-lg p-6">
+        {programData.map((day) => (
+          <div class="space-y-4">
+            <h2 class="text-2xl font-bold text-white">{day.date}</h2>
+            <div class="relative group">
+              <div class="flex space-x-4 overflow-x-auto pb-4 scrollbar-hide">
+                {day.presentations.map((presentation) => (
+                  <div class="relative flex-shrink-0 w-72 group/item presentation-card" data-fields={presentation.field.join(' ')}>
+                    <div class="relative rounded-lg overflow-hidden transform transition-all duration-300 group-hover/item:scale-105">
+                      <img
+                        src={presentation.image}
+                        alt={presentation.title}
+                        class="w-full h-40 object-cover"
+                      />
+                      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30 opacity-0 group-hover/item:opacity-100 transition-opacity duration-300"></div>
+                      <div class="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover/item:translate-y-0 transition-transform duration-300">
+                        <h3 class="text-white font-semibold">{presentation.title}</h3>
+                        <p class="text-gray-300 text-sm">{presentation.affiliation}</p>
+                        <div class="flex flex-wrap gap-1 mt-2">
+                          {presentation.field.map((fieldId) => {
+                            const field = fields.find(f => f.id === fieldId);
+                            return field ? (
+                              <span class={`${field.color} text-white text-xs px-2 py-1 rounded-full`}>
+                                {field.name}
+                              </span>
+                            ) : null;
+                          })}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Container>
+    
+    <!-- Bottom fade gradient -->
+    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-transparent to-stone-950 z-10"></div>
+  </div>
+</Layout>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .filter-btn.active {
+    opacity: 1;
+    transform: scale(1.05);
+    box-shadow: 0 0 0 2px white;
+  }
+
+  .filter-btn {
+    opacity: 0.7;
+  }
+
+  .presentation-card {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .presentation-card.hidden {
+    display: none;
+  }
+</style>
+
+<script>
+  // Add smooth scrolling for the presentation rows
+  document.querySelectorAll('.overflow-x-auto').forEach(container => {
+    let isDown = false;
+    let startX: number;
+    let scrollLeft: number;
+
+    container.addEventListener('mousedown', (e: MouseEvent) => {
+      isDown = true;
+      (container as HTMLElement).style.cursor = 'grabbing';
+      startX = e.pageX - (container as HTMLElement).offsetLeft;
+      scrollLeft = container.scrollLeft;
+    });
+
+    container.addEventListener('mouseleave', () => {
+      isDown = false;
+      (container as HTMLElement).style.cursor = 'grab';
+    });
+
+    container.addEventListener('mouseup', () => {
+      isDown = false;
+      (container as HTMLElement).style.cursor = 'grab';
+    });
+
+    container.addEventListener('mousemove', (e: MouseEvent) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - (container as HTMLElement).offsetLeft;
+      const walk = (x - startX) * 2;
+      container.scrollLeft = scrollLeft - walk;
+    });
+  });
+
+  // Filter functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const presentationCards = document.querySelectorAll('.presentation-card');
+    let activeFilters: string[] = [];
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const field = (button as HTMLElement).dataset.field;
+        if (!field) return;
+
+        // Toggle active state
+        button.classList.toggle('active');
+        
+        // Update active filters
+        if (button.classList.contains('active')) {
+          activeFilters.push(field);
+        } else {
+          activeFilters = activeFilters.filter(f => f !== field);
+        }
+
+        // Filter presentations
+        presentationCards.forEach(card => {
+          const cardFields = (card as HTMLElement).dataset.fields?.split(' ') || [];
+          
+          if (activeFilters.length === 0) {
+            // If no filters are active, show all cards
+            card.classList.remove('hidden');
+          } else {
+            // Check if card has any of the active filters
+            const hasActiveFilter = activeFilters.some(filter => cardFields.includes(filter));
+            if (hasActiveFilter) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          }
+        });
+      });
+    });
+  });
+</script>

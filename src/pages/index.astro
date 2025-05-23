@@ -4,17 +4,22 @@ import Faq from "@components/faq.astro";
 import Features from "@components/features.astro";
 import Hero from "@components/hero.astro";
 import Newsletter from "@components/newsletter.astro";
+import Sectionhead from "@components/sectionhead.astro";
 import Layout from "@layouts/Layout.astro";
+import Cobe from "@components/cobe.astro";
+import Stickybar from "@components/stickybar.astro"; // <-- Add this line
+
 import { changeLanguage } from "i18next";
 
 changeLanguage("en");
 ---
-
 <Layout>
+	<!--
+      <Stickybar />
+      -->
 	<Container>
 		<Hero />
-		<Features />
+		<Container />
 		<Faq />
-		<Newsletter />
 	</Container>
 </Layout>

@@ -29,8 +29,8 @@ export default defineConfig({
 			includeAssets: ["favicon.svg"],
 			registerType: "autoUpdate",
 			manifest: {
-				name: "Astros - Starter Template for Astro with Tailwind CSS",
-				short_name: "Astros",
+				name: "ConSOLE34",
+				short_name: "ConSOLE34",
 				theme_color: "#ffffff",
 				icons: [
 					{

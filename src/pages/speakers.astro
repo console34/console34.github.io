@@ -1,0 +1,70 @@
+---
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+import { changeLanguage } from "i18next";
+
+changeLanguage("en");
+
+const speakersData = [
+  {
+    date: "28 January",
+    image: "random_headshot.jpg",
+    name: "Andrea Moro",
+    affiliation: "IUSS Pavia",
+  },
+  {
+    date: "5 February",
+    image: "random_headshot.jpg",
+    name: "Gillian Ramchand",
+    affiliation: "Oxford",
+  },
+  {
+    date: "12 March",
+    image: "random_headshot.jpg",
+    name: "Vieri Samek-Lodovici",
+    affiliation: "UCL",
+  },
+  {
+    date: "12 March",
+    image: "random_headshot.jpg",
+    name: "Roger Levy",
+    affiliation: "MIT",
+  },
+  {
+    date: "12 March",
+    image: "random_headshot.jpg",
+    name: "Marco Tettamanti",
+    affiliation: "Milano Bicocca",
+  },
+];
+---
+
+<Layout title="Invited Speakers">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Keynote Speakers</Fragment>
+      <Fragment slot="desc"></Fragment>
+    </Sectionhead>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mx-auto max-w-6xl mt-10">
+		{speakersData.map((speaker) => (
+		  <div class="relative overflow-hidden rounded-md shadow-lg group w-full aspect-square">
+			<img
+			  src={speaker.image}
+			  alt={speaker.name}
+			  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+			/>
+			<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent transition-opacity group-hover:from-black/80"></div>
+			<div class="absolute bottom-0 w-full p-2 text-center">
+			  <h3 class="text-white text-sm font-semibold">{speaker.name}</h3>
+			  <p class="text-white text-xs">{speaker.affiliation}</p>
+			  <p class="mt-1 text-[10px] text-gray-300">{speaker.date}</p>
+			</div>
+		  </div>
+		))}
+	  </div>
+	  
+	  
+  </Container>
+</Layout>

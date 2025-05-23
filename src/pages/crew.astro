@@ -1,0 +1,268 @@
+---
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+import { changeLanguage } from "i18next";
+
+changeLanguage("en");
+
+const contacts = [
+	{
+		photo: "/images/crew/sarah.jpeg",
+		name: "Sarah Rossi",
+		title: "Working on the syntax and acquisition of imperatives and expletive negation.",
+		funnyTitle: "If you're shy, come to me! I'll temporarily adopt you, and we can talk all things linguistics over a coffee or bubble tea – your choice! 🌸",
+		email: "tommaso.sgrizzi@iusspavia.it",
+		website: "https://example.com",
+		linkedin: "https://linkedin.com/in/tommaso-sgrizzi",
+		instagram: "https://instagram.com/tommaso-sgrizzi",
+	},
+	{
+		photo: "/images/crew/tom.png",
+		name: "Tommaso Sgrizzi",
+		title: "Working on the syntax and acquisition of restructuring verbs in Italian.",
+		funnyTitle: "I can show you the best place to get Greek food in town 😎",
+		email: "tommaso.sgrizzi@iusspavia.it",
+		website: "https://example.com",
+		linkedin: "https://linkedin.com/in/tommaso-sgrizzi",
+		instagram: "https://instagram.com/tommaso-sgrizzi",
+	},
+	{
+		photo: "/images/crew/asya.png",
+		name: "Asya Zanollo",
+		title: "Working on the syntax and computation of crossword language in Italian.",
+		funnyTitle: "Part-time mountain goat, full-time foodie😋 Catch me chasing sunsets, the perfect aperitivo, and always on the hunt for the perfect weekend getaway.",
+		email: "tommaso.sgrizzi@iusspavia.it",
+		website: "https://example.com",
+		linkedin: "https://linkedin.com/in/tommaso-sgrizzi",
+		instagram: "https://instagram.com/tommaso-sgrizzi",
+	},
+];
+
+const contacts_workshop = [
+{
+		photo: "/images/crew/giorgia.png",
+		name: "Giorgia Bontempi",
+		title: "Working on the application of natural language processing techniques for the analysis of dream content in clinical populations.",
+		funnyTitle: "Struggling with life choices? Same! Let's panic and procrastinate together. ✨",
+		email: "tommaso.sgrizzi@iusspavia.it",
+		website: "https://example.com",
+		linkedin: "https://linkedin.com/in/tommaso-sgrizzi",
+		instagram: "https://instagram.com/tommaso-sgrizzi",
+	},
+	{
+		photo: "/images/crew/elce.png",
+		name: "Valentina Elce",
+		title: " Working on the application of computational linguistics to study the phenomenology of dreaming.",
+		funnyTitle: "The worst thing about the prison was… was the Dementors!” (Michael Scott)",
+		email: "tommaso.sgrizzi@iusspavia.it",
+		website: "https://example.com",
+		linkedin: "https://linkedin.com/in/tommaso-sgrizzi",
+		instagram: "https://instagram.com/tommaso-sgrizzi",
+	},
+];
+---
+
+<Layout title="Contact">
+	<Container>
+		<Sectionhead>
+			<Fragment slot="title">Need help?</Fragment>
+			<Fragment slot="desc">Choose your fighter.</Fragment>
+		</Sectionhead>
+
+		<style>
+			.card-container {
+				perspective: 1000px;
+				min-height: 200px; /* Ensures enough height */
+			}
+			.card {
+				width: 100%;
+				height: 100%;
+				transform-style: preserve-3d;
+				transition: transform 0.6s;
+				position: relative;
+			}
+			.card:hover {
+				transform: rotateX(180deg);
+			}
+			.card-face {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				backface-visibility: hidden;
+				display: flex;
+				align-items: center;
+				gap: 1.5rem;
+				padding: 1.5rem;
+				border-radius: 0.5rem;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				min-height: 200px; /* Same height as container */
+				box-sizing: border-box;
+			}
+			.card-front {
+				background-color: white;
+				color: black;
+			}
+			.dark .card-front {
+				background-color: #1f2937;
+				color: white;
+			}
+			.card-back {
+				transform: rotateX(180deg);
+				background-color: white;
+				color: black;
+			}
+			.dark .card-back {
+				background-color: #1f2937;
+				color: white;
+			}
+			.contact-img {
+				width: 6rem;
+				height: 6rem;
+				border-radius: 9999px;
+				object-fit: cover;
+			}
+			.contact-info {
+				display: flex;
+				flex-direction: column;
+				gap: 0.5rem;
+			}
+			.contact-links {
+				display: flex;
+				gap: 0.75rem;
+				margin-top: 0.5rem;
+			}
+		</style>
+
+		<div class="py-24 sm:py-32">
+			<div class="mx-auto max-w-7xl px-6 lg:px-8">
+				<div class="mx-auto max-w-2xl space-y-16 divide-y divide-gray-100 lg:mx-0 lg:max-w-none">
+					<div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3">
+						<div>
+							<h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Main session</h2>
+							<p class="mt-4 leading-7 text-gray-600 dark:text-gray-200">frasetta leggera da capire</p>
+						</div>
+						<div class="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:col-span-2 lg:gap-8">
+							{
+								contacts.map((item) => (
+									<div class="card-container">
+										<div class="card">
+											<!-- Front Face -->
+											<div class="card-face card-front">
+												<img src={item.photo} alt={item.name} class="contact-img" />
+												<div class="contact-info">
+													<h3 class="text-lg font-semibold">{item.name}</h3>
+													<p class="text-sm">{item.title}</p>
+													<div class="contact-links">
+														<a href={`mailto:${item.email}`} class="text-stone-600 dark:text-white hover:text-stone-800 dark:hover:text-stone-300">
+															📧
+														</a>
+														<a href={item.website} class="text-stone-600 dark:text-white hover:text-stone-800 dark:hover:text-stone-300">
+															🌐
+														</a>
+														<a href={item.linkedin} class="text-stone-600 dark:text-white hover:text-stone-800 dark:hover:text-stone-300">
+															💼
+														</a>
+														<a href={item.instagram} class="text-stone-600 dark:text-white hover:text-stone-800 dark:hover:text-stone-300">
+															📸
+														</a>
+													</div>
+												</div>
+											</div>
+
+											<!-- Back Face -->
+											<div class="card-face card-back">
+												<img src={item.photo} alt={item.name} class="contact-img" />
+												<div class="contact-info">
+													<h3 class="text-lg font-semibold">{item.name}</h3>
+													<p class="text-sm italic">{item.funnyTitle}</p>
+													<div class="contact-links">
+														<a href={`mailto:${item.email}`} class="text-stone-600 dark:text-white hover:text-stone-800 dark:hover:text-stone-300">
+															📧
+														</a>
+														<a href={item.website} class="text-stone-600 dark:text-white hover:text-stone-800 dark:hover:text-stone-300">
+															🌐
+														</a>
+														<a href={item.linkedin} class="text-stone-600 dark:text-white hover:text-stone-800 dark:hover:text-stone-300">
+															💼
+														</a>
+														<a href={item.instagram} class="text-stone-600 dark:text-white hover:text-stone-800 dark:hover:text-stone-300">
+															📸
+														</a>
+													</div>
+												</div>
+											
+											</div>
+										</div>
+									</div>
+								))
+							}
+						<hr/>
+						</div>	
+						<div>
+							<h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Workshop</h2>
+							<p class="mt-4 leading-7 text-gray-600 dark:text-gray-200">frasetta leggera da capire</p>
+						</div>			
+						<div class="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:col-span-2 lg:gap-8">
+							{
+								contacts_workshop.map((item) => (
+									<div class="card-container">
+										<div class="card">
+											<!-- Front Face -->
+											<div class="card-face card-front">
+												<img src={item.photo} alt={item.name} class="contact-img" />
+												<div class="contact-info">
+													<h3 class="text-lg font-semibold">{item.name}</h3>
+													<p class="text-sm">{item.title}</p>
+													<div class="contact-links">
+														<a href={`mailto:${item.email}`} class="text-stone-600 dark:text-white hover:text-stone-800 dark:hover:text-stone-300">
+															📧
+														</a>
+														<a href={item.website} class="text-stone-600 dark:text-white hover:text-stone-800 dark:hover:text-stone-300">
+															🌐
+														</a>
+														<a href={item.linkedin} class="text-stone-600 dark:text-white hover:text-stone-800 dark:hover:text-stone-300">
+															💼
+														</a>
+														<a href={item.instagram} class="text-stone-600 dark:text-white hover:text-stone-800 dark:hover:text-stone-300">
+															📸
+														</a>
+													</div>
+												</div>
+											</div>
+
+											<!-- Back Face -->
+											<div class="card-face card-back">
+												<img src={item.photo} alt={item.name} class="contact-img" />
+												<div class="contact-info">
+													<h3 class="text-lg font-semibold">{item.name}</h3>
+													<p class="text-sm italic">{item.funnyTitle}</p>
+													<div class="contact-links">
+														<a href={`mailto:${item.email}`} class="text-stone-600 dark:text-white hover:text-stone-800 dark:hover:text-stone-300">
+															📧
+														</a>
+														<a href={item.website} class="text-stone-600 dark:text-white hover:text-stone-800 dark:hover:text-stone-300">
+															🌐
+														</a>
+														<a href={item.linkedin} class="text-stone-600 dark:text-white hover:text-stone-800 dark:hover:text-stone-300">
+															💼
+														</a>
+														<a href={item.instagram} class="text-stone-600 dark:text-white hover:text-stone-800 dark:hover:text-stone-300">
+															📸
+														</a>
+													</div>
+												</div>
+											
+											</div>
+										</div>
+									</div>
+								))
+							}
+						<hr/>
+						</div>		
+					</div>
+				</div>
+			</div>
+		</div>
+	</Container>
+</Layout>

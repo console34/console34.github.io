@@ -23,13 +23,19 @@ const resolvedImageWithDomain = new URL(
 const { title, lang = null } = Astro.props;
 
 const makeTitle = title
-	? `${title} | Astros`
-	: "Astros - Starter Template for Astro with Tailwind CSS";
+	? `${title}`
+	: "ConSOLE34";
 ---
 
 <!doctype html>
 <html lang={lang ?? i18next.language}>
 	<head>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+		crossorigin=""/>
+	  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+		integrity="sha256-20nQCchB9co0qIjJZs1ardeIDLi/9izAA1ehnzADog="
+		crossorigin=""></script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -41,7 +47,6 @@ const makeTitle = title
 
 		<!-- Global CSS -->
 		<link rel="stylesheet" href="/index.css" />
-
 		<SEO
 			title={makeTitle}
 			description="Astros is a starter website template for Astro built with TailwindCSS and alpine js."
@@ -50,7 +55,7 @@ const makeTitle = title
 				basic: {
 					url: canonicalURL,
 					type: "website",
-					title: `Astros - Starter Template for Astro`,
+					title: `ConSOLE34`,
 					image: resolvedImageWithDomain,
 				},
 				image: {
@@ -61,16 +66,19 @@ const makeTitle = title
 
 		<script is:inline>
 			function handleThemeChange() {
-				if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-					document.documentElement.classList.add("dark");
-				} else {
-					document.documentElement.classList.remove("dark");
-				}
+			  if (localStorage.theme === "dark") {
+				// User explicitly chose dark
+				document.documentElement.classList.add("dark");
+			  } else {
+				// Default to light always
+				document.documentElement.classList.remove("dark");
+			  }
 			}
 			handleThemeChange();
 			document.removeEventListener("astro:after-swap", handleThemeChange);
 			document.addEventListener("astro:after-swap", handleThemeChange);
-		</script>
+		  </script>
+		  
 
 		{pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} />}
 		<script src="/src/pwa.ts"></script>

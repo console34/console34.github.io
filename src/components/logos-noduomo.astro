@@ -1,0 +1,31 @@
+---
+const logos = [
+	{src:"nets-logo.png",
+		alt:"",
+	},
+	{
+		src: "logo-iuss.svg",
+		alt: "iuss",
+	},
+	{
+		src: "efc-logo.webp",
+		alt: "efc",
+	},
+	{
+		src: "imt-logo.png",
+		alt: "imt",
+	},
+	
+];
+---
+
+<div class="mx-auto max-w-7xl px-6 lg:px-8 py-20">
+	<div
+		class="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-4 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+		{
+			logos.map(({ src, alt }) => (
+				<img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1 dark:invert" src={src} alt={alt} width="158" height="48" />
+			))
+		}
+	</div>
+</div>
