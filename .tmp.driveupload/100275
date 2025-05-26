@@ -1,0 +1,11 @@
+0000000000000000000000000000000000000000 1eaece7011bb3be8055e9c302c45ab7e03b3da30 Tommaso Sgrizzi <tommaso.sgrizzi@iusspavia.it> 1741699103 +0100	clone: from https://github.com/majesticooss/astros.git
+1eaece7011bb3be8055e9c302c45ab7e03b3da30 ad2e663bc1f71c7fb109fa09af135801da4e421f Tommaso Sgrizzi <tommaso.sgrizzi@iusspavia.it> 1748014590 +0200	commit: Initial Commit
+ad2e663bc1f71c7fb109fa09af135801da4e421f 0000000000000000000000000000000000000000 Tommaso Sgrizzi <tommaso.sgrizzi@iusspavia.it> 1748014595 +0200	Branch: renamed refs/heads/main to refs/heads/main
+ad2e663bc1f71c7fb109fa09af135801da4e421f ad2e663bc1f71c7fb109fa09af135801da4e421f Tommaso Sgrizzi <tommaso.sgrizzi@iusspavia.it> 1748014595 +0200	Branch: renamed refs/heads/main to refs/heads/main
+ad2e663bc1f71c7fb109fa09af135801da4e421f 63cd0a28c1493d81822122d75f5847f3f87ced2d Tommaso Sgrizzi <tommaso.sgrizzi@iusspavia.it> 1748014653 +0200	commit: Initialcommit
+63cd0a28c1493d81822122d75f5847f3f87ced2d 0000000000000000000000000000000000000000 Tommaso Sgrizzi <tommaso.sgrizzi@iusspavia.it> 1748014653 +0200	Branch: renamed refs/heads/main to refs/heads/main
+63cd0a28c1493d81822122d75f5847f3f87ced2d 63cd0a28c1493d81822122d75f5847f3f87ced2d Tommaso Sgrizzi <tommaso.sgrizzi@iusspavia.it> 1748014653 +0200	Branch: renamed refs/heads/main to refs/heads/main
+63cd0a28c1493d81822122d75f5847f3f87ced2d 87d527f130d508f87f9cc0979ac29969f57ed979 Tommaso Sgrizzi <tommaso.sgrizzi@iusspavia.it> 1748247848 +0200	commit: Setup GitHub Pages deployment
+87d527f130d508f87f9cc0979ac29969f57ed979 8f0ab04298aa054c553ece042210cb4fce022bae Tommaso Sgrizzi <tommaso.sgrizzi@iusspavia.it> 1748249313 +0200	commit: Add reversed.apng to public folder for GitHub Pages
+8f0ab04298aa054c553ece042210cb4fce022bae da7ac0a9d8bc74f751bc3521d82ee5235cef3613 Tommaso Sgrizzi <tommaso.sgrizzi@iusspavia.it> 1748249657 +0200	commit: Pin action versions for deploy stability
+da7ac0a9d8bc74f751bc3521d82ee5235cef3613 0fa5e48d417de5fc0871bddbd83cdb8851c62bbf Tommaso Sgrizzi <tommaso.sgrizzi@iusspavia.it> 1748249913 +0200	commit: Pin action versions for deploy stabilityyyy
