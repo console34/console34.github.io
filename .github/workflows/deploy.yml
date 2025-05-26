@@ -2,7 +2,7 @@ name: Deploy Astro site to GitHub Pages
 
 on:
   push:
-    branches: [main] # or "master" if your default branch is that
+    branches: [main] # or "master" if that's your default
 
 permissions:
   contents: read
@@ -30,8 +30,9 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-            path: ./dist
-            name: astro-site
+          path: ./dist
+          name: astro-site-${{ github.run_id }}
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -43,5 +44,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-            artifact_name: astro-site
-
+          artifact_name: astro-site-${{ github.run_id }}
