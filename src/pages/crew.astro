@@ -79,7 +79,7 @@ import Sectionhead from "@components/sectionhead.astro";
                   </p>
                   <p class="text-sm mb-2 hover-text"
                      data-original="Working on the syntax and computation of crossword language in Italian."
-                     data-hover="Part-time mountain goat, full-time foodie😋 Catch me chasing sunsets, the perfect aperitivo, and always on the hunt for the perfect weekend getaway.">
+                     data-hover="Adventure by lens, aperitivo by heart ⛰📷🍹">
                     Working on the syntax and computation of crossword language in Italian.
                   </p>
                   <div class="flex gap-3">
@@ -277,8 +277,12 @@ import Sectionhead from "@components/sectionhead.astro";
     });
   }
 
-  // Initial setup
-  document.addEventListener('DOMContentLoaded', setupHoverTexts);
+  // Run immediately in case the DOM is already loaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupHoverTexts);
+  } else {
+    setupHoverTexts();
+  }
   
   // Setup after view transitions
   document.addEventListener('astro:after-swap', setupHoverTexts);
