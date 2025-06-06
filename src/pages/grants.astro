@@ -75,84 +75,92 @@ const importantDates = [
 ---
 
 <Layout title="Travel Grants">
-  <Container>
-    <Sectionhead>
-      <Fragment slot="title">Travel Grants</Fragment>
-      <Fragment slot="desc">Supporting the next generation of researchers</Fragment>
-    </Sectionhead>
+	<Container>
+		<Sectionhead>
+			<Fragment slot="title">Travel Grants</Fragment>
+			<Fragment slot="desc">Because we really want you to come!</Fragment>
+		</Sectionhead>
 
-    <!-- Introduction Section -->
-    <div class="mx-auto max-w-3xl mt-16">
-      <div class="prose prose-lg dark:prose-invert">
-        <p class="text-gray-600 dark:text-gray-400">
-          ConSOLE34 is committed to supporting student participation. We offer a limited number of travel grants to help students attend and present their research at the conference.
-        </p>
-      </div>
-    </div>
+		<div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+			<!-- Introduction -->
+			<div class="prose prose-lg dark:prose-invert mb-12 text-justify">
+				<p>
+					The organizing committee is considering allocating part of the conference budget to travel grants for student presenters. 
+					These grants will be assigned via an internal selection process based on qualitative and demographic criteria to ensure 
+					fair and equitable distribution of available funds.
+				</p>
+			</div>
 
-    <!-- Important Dates -->
-    <div class="mx-auto max-w-7xl mt-16">
-      <h2 class="text-2xl font-bold text-gray-800 dark:text-white mb-8">Important Dates</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {importantDates.map(({ date, event }) => (
-          <div class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-stone-950 px-8 pb-8 pt-32 sm:pt-64 lg:pt-30">
-            <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
-            <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
-            <p class="text-blue-400 dark:text-blue-400 font-semibold mb-2">{date}</p>
-            <p class="text-gray-200 dark:text-gray-200">{event}</p>
-          </div>
-        ))}
-      </div>
-    </div>
+			<!-- Selection Criteria -->
+			<div class="mb-12">
+				<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Selection Criteria</h2>
+				<ul class="space-y-4 text-gray-600 dark:text-gray-300 text-justify">
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3">Peer review scores of the submitted abstract</span>
+					</li>
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3">A short motivation letter or project description</span>
+					</li>
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3">Academic status (e.g., pre-doctoral, with or without institutional funding)</span>
+					</li>
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3">Geographic origin, prioritizing those facing high travel costs</span>
+					</li>
+				</ul>
+			</div>
 
-    <!-- Process Steps -->
-    <div class="mx-auto max-w-7xl mt-16 space-y-12">
-      {steps.map((step) => (
-        <div class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-stone-950 px-8 pb-8 pt-32 sm:pt-64 lg:pt-30">
-          <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
-          <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
-          
-          <div class="flex flex-col md:flex-row gap-8 items-start">
-            <div class="flex-shrink-0">
-              <span class="inline-block bg-blue-600 text-white text-2xl font-bold rounded-lg w-16 h-16 flex items-center justify-center">
-                {step.number}
-              </span>
-            </div>
-            <div class="flex-grow">
-              <h3 class="text-xl font-bold text-white mb-4">{step.title}</h3>
-              <p class="text-gray-300 dark:text-gray-300 mb-4">{step.description}</p>
-              <ul class="space-y-2">
-                {step.points.map((point) => (
-                  <li class="flex items-start">
-                    <span class="text-blue-400 dark:text-blue-400 mr-2">•</span>
-                    <span class="text-gray-200 dark:text-gray-200">{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
+			<!-- Application Procedure -->
+			<div class="mb-12">
+				<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Application Procedure</h2>
+				<div class="prose prose-lg dark:prose-invert text-justify">
+					<p>
+						There is no separate application form for travel grants. To apply, simply select the relevant option on the submission form on Oxford Abstracts. You will then be prompted to provide the following documents:
+					</p>
+					<ul class="list-disc pl-6 space-y-2 mt-4">
+						<li>Proof of student status</li>
+						<li>Proof of lack of funding (if applicable)</li>
+						<li>A motivation letter (up to 500 words) explaining the relevance of participating in ConSOLE34 to your research (e.g., if the work of one of the keynote speakers particularly resonates with your own)</li>
+						<li>Country of origin</li>
+					</ul>
+					<p class="mt-4">
+						Grants will be awarded based on the above criteria.
+					</p>
+				</div>
+			</div>
 
-    <!-- Contact Section -->
-    <div class="mx-auto max-w-3xl mt-16">
-      <div class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-8 pb-8 pt-32 sm:pt-64 lg:pt-30">
-        <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
-        <div class="text-center">
-          <h2 class="text-2xl font-bold text-white mb-4">Questions?</h2>
-          <p class="text-gray-100 mb-6">
-            If you have any questions about the travel grant application process, please don't hesitate to contact us.
-          </p>
-          <a
-            href="mailto:console34@example.com"
-            class="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
-            Contact Us
-          </a>
-        </div>
-      </div>
-    </div>
-  </Container>
+			<!-- Contact Section -->
+			<div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 text-justify">
+				<h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Contact</h2>
+				<p class="text-gray-600 dark:text-gray-300">
+					For any questions, please contact us at{" "}
+					<a href="mailto:console34@iusspavia.it" class="text-blue-600 dark:text-blue-400 hover:underline">
+						console34@iusspavia.it
+					</a>
+				</p>
+			</div>
+		</div>
+	</Container>
 </Layout>
 
 <style>

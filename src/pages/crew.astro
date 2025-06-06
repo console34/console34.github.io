@@ -260,20 +260,26 @@ import Sectionhead from "@components/sectionhead.astro";
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  function setupHoverTexts() {
     const hoverTexts = document.querySelectorAll('.hover-text');
     
-    hoverTexts.forEach(text => {
-      const originalText = text.getAttribute('data-original');
-      const hoverText = text.getAttribute('data-hover');
+    hoverTexts.forEach(element => {
+      const originalText = element.getAttribute('data-original');
+      const hoverText = element.getAttribute('data-hover');
       
-      text.addEventListener('mouseenter', () => {
-        text.textContent = hoverText;
+      element.addEventListener('mouseenter', () => {
+        element.textContent = hoverText;
       });
       
-      text.addEventListener('mouseleave', () => {
-        text.textContent = originalText;
+      element.addEventListener('mouseleave', () => {
+        element.textContent = originalText;
       });
     });
-  });
+  }
+
+  // Initial setup
+  document.addEventListener('DOMContentLoaded', setupHoverTexts);
+  
+  // Setup after view transitions
+  document.addEventListener('astro:after-swap', setupHoverTexts);
 </script> 
