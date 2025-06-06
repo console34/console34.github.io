@@ -13,7 +13,9 @@
 		"article:generate": "node ./scripts/generate-article.js",
 		"i18n:generate": "astro-i18next generate && pnpm run script:change-language-in-dynamic-pages",
 		"script:change-language-in-dynamic-pages": "node ./scripts/change-language-in-dynamic-pages.js",
-		"pwa:generate-assets": "pwa-assets-generator --preset minimal public/logo.svg"
+		"pwa:generate-assets": "pwa-assets-generator --preset minimal public/logo.svg",
+		"deploy": "gh-pages -d dist",
+		"predeploy": "npm run build"
 	},
 	"dependencies": {
 		"@astrojs/alpinejs": "^0.4.0",
@@ -48,6 +50,7 @@
 		"@tailwindcss/typography": "^0.5.12",
 		"@vite-pwa/assets-generator": "^0.2.4",
 		"@vite-pwa/astro": "^0.3.1",
+		"gh-pages": "^6.3.0",
 		"rehype": "^13.0.1",
 		"sharp": "^0.33.3",
 		"workbox-window": "^7.0.0"
