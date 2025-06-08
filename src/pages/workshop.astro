@@ -5,6 +5,7 @@ import Features from "@components/features.astro";
 import Hero from "@components/hero.astro";
 import Newsletter from "@components/newsletter.astro";
 import Layout from "@layouts/Layout.astro";
+import Logos from "@components/logos-noduomo.astro";
 import { changeLanguage } from "i18next";
 
 changeLanguage("en");
@@ -13,8 +14,27 @@ changeLanguage("en");
 <Layout>
 	<Container>
 		<Hero dynamic={true} />
-		<Features />
+		<section class="py-12">
+			<h2 class="text-3xl font-bold text-center mb-8">Workshop Information</h2>
+			<div class="max-w-4xl mx-auto">
+				<h3 class="text-2xl font-semibold mb-4">Keynote Speaker</h3>
+				<p class="mb-4">Prof. Marco Tettamanti is a renowned expert in the field of neurolinguistics. He has published numerous papers and books on the subject and ....</p>
+				<h3 class="text-2xl font-semibold mb-4">Call for Papers</h3>
+				<p class="mb-4">We invite submissions of original research papers on topics related to neurolinguistics. Submissions should be in English and should not exceed 2 pages in length.</p>
+				<h3 class="text-2xl font-semibold mb-4">Deadlines</h3>
+				<p class="mb-4">Submission Deadline: xxxx26<br>Notification of Acceptance: xxxx</p>
+				<h3 class="text-2xl font-semibold mb-4">Topics</h3>
+				<p class="mb-4">Topics of interest include, but are not limited to:</p>
+				<ul class="list-disc pl-5 mb-4">
+					<li>Language acquisition and development</li>
+					<li>Neurolinguistic processing</li>
+					<li>Bilingualism and multilingualism</li>
+					<li>Language disorders and rehabilitation</li>
+					<li>Computational models of language processing</li>
+				</ul>
+			</div>
+		</section>
+		<Logos />
 		<Faq />
-		<Newsletter />
 	</Container>
 </Layout>

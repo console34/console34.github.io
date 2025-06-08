@@ -31,12 +31,6 @@ const speakersData = [
     name: "Roger Levy",
     affiliation: "MIT",
   },
-  {
-    date: "12 March",
-    image: "/images/keynotes/mt.png",
-    name: "Marco Tettamanti",
-    affiliation: "Milano Bicocca",
-  },
 ];
 ---
 
@@ -44,7 +38,7 @@ const speakersData = [
   <Container>
     <Sectionhead>
       <Fragment slot="title">Keynote Speakers</Fragment>
-      <Fragment slot="desc"></Fragment>
+      <Fragment slot="desc">ConSOLE34 Main Session</Fragment>
     </Sectionhead>
 
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mx-auto max-w-6xl mt-10">
@@ -59,7 +53,7 @@ const speakersData = [
 			<div class="absolute bottom-0 w-full p-2 text-center">
 			  <h3 class="text-white text-sm font-semibold">{speaker.name}</h3>
 			  <p class="text-white text-xs">{speaker.affiliation}</p>
-			  <p class="mt-1 text-[10px] text-gray-300">{speaker.date}</p>
+			   {/* <p class="mt-1 text-[10px] text-gray-300">{speaker.date}</p> */}
 			</div>
 		  </div>
 		))}

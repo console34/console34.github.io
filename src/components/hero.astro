@@ -5,6 +5,7 @@ import Link from "@components/ui/link.astro";
 import abstractDottedGlobeIllustration from "assets/abstract-dotted-globe-illustration.png";
 import { t } from "i18next";
 import Logos from "@components/logos.astro";
+import LogosNoduomo from "@components/logos-noduomo.astro";
 
 const { dynamic = false } = Astro.props;
 ---
@@ -40,23 +41,23 @@ const { dynamic = false } = Astro.props;
 					<div className="text-center">
 						<div class="flex justify-center items-center w-full">
 							<img 
-								src="/images/logos/sliding_doors.apng" 
-								alt="Logo" 
-								class="banner-img mx-auto object-contain dark:invert"
-							/>
+  src={dynamic ? "/images/logos/workshop_logo.apng" : "/images/logos/sliding_doors.apng"} 
+  alt="Logo" 
+  class="banner-img mx-auto object-contain dark:invert"
+/>
 						  </div>						  
 					</div>
 				  </div>							
 				{/* <h1 class="text-4xl font-bold tracking-tight text-black dark:text-white sm:text-6xl">{t("ConSOLE34")}</h1>*/}
 				<p class="mt-6 text-lg leading-8 text-gray-900 dark:text-gray-100">
-					{t("Pavia | 28-30 January 2026")}
+					{dynamic ? t("Pavia | 28 January 2026") : t("Pavia | 28-30 January 2026")}
 				</p>
 				<div class="mt-10 flex items-center justify-center gap-x-2 md:gap-x-6">
-					<Link href="https://github.com/zankhq/astros">{t("Call for papers")}</Link>
+					<Link href="https://github.com/zankhq/astros" style={dynamic ? "primary" : undefined} class={dynamic ? "bg-green-900 hover:bg-green-800 dark:bg-green-900 dark:hover:bg-green-800" : ""}>{t("Call for papers")}</Link>
 					{
 						dynamic ? (
 							<Link href="/" style="muted">
-								{t("hero_animated.secondary_button_text")}
+								{t("Main session")}
 								<span aria-hidden="true" class="pl-1 text-black dark:text-white">
 									→
 								</span>
@@ -76,7 +77,7 @@ const { dynamic = false } = Astro.props;
 				</div>
 			</div>
 			<div>
-				<Logos />
+				{dynamic ? <LogosNoduomo /> : <Logos />}
 			</div>
 			
 		</div>
