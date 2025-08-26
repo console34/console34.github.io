@@ -1,0 +1,249 @@
+---
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+import { changeLanguage } from "i18next";
+import AnimatedTooltipPreview from '../components/animated-tooltip-demo';
+
+changeLanguage("en");
+
+const steps = [
+  {
+    number: "01",
+    title: "Eligibility",
+    description: "Travel grants are available to students who:",
+    points: [
+      "Are currently enrolled in a BA, MA, or PhD program",
+      "Have submitted an abstract for presentation",
+      "Are traveling from outside the host city",
+      "Can demonstrate financial need"
+    ]
+  },
+  {
+    number: "02",
+    title: "Application",
+    description: "To apply for a travel grant, submit:",
+    points: [
+      "CV or resume (max 2 pages)",
+      "Motivation letter (max 500 words)",
+      "Budget estimation for travel and accommodation",
+      "Proof of student status",
+      "Letter of support from supervisor (optional)"
+    ]
+  },
+  {
+    number: "03",
+    title: "Selection",
+    description: "Applications will be evaluated based on:",
+    points: [
+      "Academic merit and research potential",
+      "Relevance of presentation to conference themes",
+      "Distance of travel and associated costs",
+      "Available funding and number of applications"
+    ]
+  },
+  {
+    number: "04",
+    title: "Award",
+    description: "Selected applicants will receive:",
+    points: [
+      "Up to €500 for travel and accommodation",
+      "Free conference registration",
+      "Priority for student accommodation",
+      "Certificate of grant award"
+    ]
+  }
+];
+
+const importantDates = [
+  {
+    date: "March 1, 2024",
+    event: "Grant application opens"
+  },
+  {
+    date: "April 15, 2024",
+    event: "Application deadline"
+  },
+  {
+    date: "May 1, 2024",
+    event: "Notification of decisions"
+  },
+  {
+    date: "May 15, 2024",
+    event: "Acceptance deadline"
+  }
+];
+---
+
+<Layout title="Call for Papers | Main Session">
+	<Container>
+		<Sectionhead>
+			<Fragment slot="title">Call for Papers</Fragment>
+			<Fragment slot="desc">Main Session</Fragment>
+		</Sectionhead>
+
+		<div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+			<!-- Introduction -->
+			<div class="prose prose-lg dark:prose-invert mb-12 text-justify">
+				<p>
+					The theme of this year’s ConSOLE is <strong>movement</strong>. Movement is, in many theoretical traditions, <strong>one of the most fundamental and far-reaching notions in linguistics</strong>: it captures the fact that units of language are not always interpreted where they are pronounced, nor pronounced where they are first merged. Displacement, reordering, and shifting can be observed at many levels of grammar, from word-internal morphology to large-scale syntactic configurations, and in certain phonological and semantic phenomena as well.
+
+				</p>
+				<p> What makes movement so intriguing is both its <strong>pervasiveness</strong> and its <strong>diversity</strong>. <strong>Syntactic theories</strong> account for phenomena like wh-movement, topicalization, scrambling, or raising by invoking displacement operations, while <strong>phonologists</strong> have described processes such as tone shift, metathesis, and prosodic restructuring in movement-like or reordering terms. In <strong>syntax-semantics interface research</strong>, covert movement has been hypothesized as a way of modeling scope and binding. <strong>Morphological systems</strong>, too, may exhibit movement-like effects, for instance in affix placement and alignment. Finally, from a <strong>computational perspective</strong>, movement phenomena present important challenges for parsing algorithms and machine learning models, which must handle non-local dependencies and long-distance relationships.
+				</p>
+
+				<p>This year’s theme aims to encourage <strong>a conversation across domains</strong>. <strong>Why is movement such a pervasive property of language?</strong> What <strong>motivates it</strong>, and <strong>what role</strong> does it play in grammar and interpretation? Is there <strong>unified notion of movement</strong> underlying its many manifestations, or are we dealing with <strong>distinct mechanisms</strong> that only appear similar? How do <strong>locality conditions</strong>, <strong>intervention effects</strong>, and <strong>interface restrictions</strong> shape the possibilities for movement? What do <strong>typological</strong> and <strong>experimental data</strong> tell us about the <strong>universality or variation</strong> of movement phenomena?
+				</p>
+				<p>We welcome contributions that address these questions from any theoretical perspective and across all areas of linguistics.</p>
+			</div>
+
+			<!-- Submission Criteria -->
+			<div class="mb-12">
+				<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Submission Criteria</h2>
+				<ul class="space-y-4 text-gray-600 dark:text-gray-300 text-justify">
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3">Only original research that has not been published or accepted for publication at the time of submission can be presented.
+						</span>
+					</li>
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3"> Language for the abstracts and presentations should be English.</span>
+					</li>
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3">One author may submit at most one abstract as sole author and one abstract as co-author (or two co-authored abstracts).</span>
+					</li>
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3"> Authors should specify whether they would like to be considered for oral or poster presentation (or for both).
+						</span>
+					</li>
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3">Abstracts must be submitted in PDF format. The files must be anonymous and not reveal the identity of the author(s) in any form (be sure to remove metadata from the file).
+						</span>
+					</li>
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3">Abstracts are limited to a maximum of 2 A4 pages (including references, examples, tables, appendices, etc.) and must have 1.5 cm margins on all sides, with a font no smaller than 12pt set in Times New Roman (or a similar font).
+						</span>
+					</li>
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3">Abstracts not complying with these guidelines may be excluded from the reviewing process.
+						</span>
+					</li>
+				</ul>
+			</div>
+
+			<!-- Application Procedure -->
+			<div class="mb-12">
+				<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Application Procedure</h2>
+				<div class="prose prose-lg dark:prose-invert text-justify">
+					<p>
+						To apply, follow the instructions on Oxford Abstracts. 
+					</p>
+					
+				</div>
+				
+			</div>
+<!-- acceptance and travel grant notifications -->
+<div class="mb-12">
+	<div class="rounded-lg border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900/30 p-6 shadow-sm">
+	  <div class="flex">
+		<div class="flex-shrink-0">
+		  <!-- Info Icon -->
+		  <svg class="h-6 w-6 text-blue-600 dark:text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 6a9 9 0 100 18 9 9 0 000-18z" />
+		  </svg>
+		</div>
+		<div class="ml-4">
+		  <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
+			Travel Grants
+		  </h2>
+		  <p class="mt-2 text-gray-700 dark:text-gray-300">
+			If you want to be considered for a travel grant, please indicate this in the submission form. See the relevant <a href="/grants" class="text-blue-600 dark:text-blue-400 hover:underline">Travel Grants page</a> for more information.</p>
+		</p>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+  <div class="mb-12">
+	<div class="rounded-lg border-l-4 border-green-500 bg-green-50 dark:bg-blue-900/30 p-6 shadow-sm">
+	  <div class="flex">
+		<div class="flex-shrink-0">
+		  <!-- Info Icon -->
+		  <svg class="h-6 w-6 text-blue-600 dark:text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 6a9 9 0 100 18 9 9 0 000-18z" />
+		  </svg>
+		</div>
+		<div class="ml-4">
+		  <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
+			Neurolinguistics Workshop
+		  </h2>
+		  <p class="mt-2 text-gray-700 dark:text-gray-300">
+			If you want to apply for the neurolinguistics workshop, see the call at the <a href="/workshop" class="text-blue-600 dark:text-blue-400 hover:underline">dedicated page</a> for more information.</p>
+		</p>
+		</div>
+	  </div>
+	</div>
+  </div>
+					
+						
+
+			<!-- Contact Section -->
+			<div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 text-justify">
+				<h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Contact</h2>
+				<p class="text-gray-600 dark:text-gray-300">
+					For any questions, please contact us at{" "}
+					<a href="mailto:console34@iusspavia.it" class="text-blue-600 dark:text-blue-400 hover:underline">
+						console34@iusspavia.it
+					</a>
+				</p>
+			</div>
+		</div>
+		<div class="text-left">
+			<AnimatedTooltipPreview client:load />
+		  </div>
+		  
+		  
+		
+	</Container>
+</Layout>
+
+<style>
+  /* Add smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+</style> 

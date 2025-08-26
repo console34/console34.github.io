@@ -1,0 +1,200 @@
+---
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+import { changeLanguage } from "i18next";
+import AnimatedTooltipPreview from '../components/animated-tooltip-demo-total';
+
+changeLanguage("en");
+
+const steps = [
+  {
+    number: "01",
+    title: "Eligibility",
+    description: "Travel grants are available to students who:",
+    points: [
+      "Are currently enrolled in a BA, MA, or PhD program",
+      "Have submitted an abstract for presentation",
+      "Are traveling from outside the host city",
+      "Can demonstrate financial need"
+    ]
+  },
+  {
+    number: "02",
+    title: "Application",
+    description: "To apply for a travel grant, submit:",
+    points: [
+      "CV or resume (max 2 pages)",
+      "Motivation letter (max 500 words)",
+      "Budget estimation for travel and accommodation",
+      "Proof of student status",
+      "Letter of support from supervisor (optional)"
+    ]
+  },
+  {
+    number: "03",
+    title: "Selection",
+    description: "Applications will be evaluated based on:",
+    points: [
+      "Academic merit and research potential",
+      "Relevance of presentation to conference themes",
+      "Distance of travel and associated costs",
+      "Available funding and number of applications"
+    ]
+  },
+  {
+    number: "04",
+    title: "Award",
+    description: "Selected applicants will receive:",
+    points: [
+      "Up to €500 for travel and accommodation",
+      "Free conference registration",
+      "Priority for student accommodation",
+      "Certificate of grant award"
+    ]
+  }
+];
+
+const importantDates = [
+  {
+    date: "March 1, 2024",
+    event: "Grant application opens"
+  },
+  {
+    date: "April 15, 2024",
+    event: "Application deadline"
+  },
+  {
+    date: "May 1, 2024",
+    event: "Notification of decisions"
+  },
+  {
+    date: "May 15, 2024",
+    event: "Acceptance deadline"
+  }
+];
+---
+
+<Layout title="Travel Grants">
+	<Container>
+		<Sectionhead>
+			<Fragment slot="title">Travel Grants</Fragment>
+			<Fragment slot="desc">because we really want you to come!</Fragment>
+		</Sectionhead>
+
+		<div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+			<!-- Introduction -->
+			<div class="prose prose-lg dark:prose-invert mb-12 text-justify">
+				<p>
+					The organizing committee will allocate part of the conference budget to travel grants for student presenters (both oral presentations and posters). 
+					These grants will be assigned via an internal selection process based on qualitative and demographic criteria to ensure 
+					fair and equitable distribution of available funds.
+				</p>
+			</div>
+
+			<!-- Selection Criteria -->
+			<div class="mb-12">
+				<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Selection Criteria</h2>
+				<ul class="space-y-4 text-gray-600 dark:text-gray-300 text-justify">
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3">Peer review scores of the submitted abstract</span>
+					</li>
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3">A short motivation letter or project description</span>
+					</li>
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3">Academic status (e.g., pre-doctoral, with or without institutional funding)</span>
+					</li>
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3">Geographic origin, prioritizing those facing high travel costs</span>
+					</li>
+				</ul>
+			</div>
+
+			<!-- Application Procedure -->
+			<div class="mb-12">
+				<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Application Procedure</h2>
+				<div class="prose prose-lg dark:prose-invert text-justify">
+					<p>
+						There is no separate application form for travel grants. To apply, simply select the relevant option on the submission form on Oxford Abstracts. You will then be prompted to provide the following documents:
+					</p>
+					<ul class="list-disc pl-6 space-y-2 mt-4">
+						<li>Proof of student status</li>
+						<li>Proof of lack of funding (if applicable)</li>
+						<li>A motivation letter (up to 500 words) explaining the relevance of participating in ConSOLE34 to your research (e.g., if the work of one of the keynote speakers particularly resonates with your own, if the conference's theme is particularly relevant to your research, etc.)</li>
+						<li>Country of institution (to calculate travelling distance)</li>
+					</ul>
+					<p class="mt-4">
+						Grants will be awarded based on the above criteria by the Organizing Committee. The deadline for applications is XXXXXXX. 
+					</p>
+				</div>
+			</div>
+<!-- acceptance and travel grant notifications -->
+<div class="mb-12">
+	<div class="rounded-lg border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900/30 p-6 shadow-sm">
+	  <div class="flex">
+		<div class="flex-shrink-0">
+		  <!-- Info Icon -->
+		  <svg class="h-6 w-6 text-blue-600 dark:text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 6a9 9 0 100 18 9 9 0 000-18z" />
+		  </svg>
+		</div>
+		<div class="ml-4">
+		  <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
+			Notifications
+		  </h2>
+		  <p class="mt-2 text-gray-700 dark:text-gray-300">
+			Successful applicants will be notified shortly after the notification of acceptance to the conference. 
+		  </p>
+		</div>
+	  </div>
+	</div>
+  </div>
+					
+						
+
+			<!-- Contact Section -->
+			<div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 text-justify">
+				<h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Contact</h2>
+				<p class="text-gray-600 dark:text-gray-300">
+					For any questions, please contact us at{" "}
+					<a href="mailto:console34@iusspavia.it" class="text-blue-600 dark:text-blue-400 hover:underline">
+						console34@iusspavia.it
+					</a>
+				</p>
+			</div>
+			<br/>
+			<br/>
+			<div class="text-left">
+				<AnimatedTooltipPreview client:load />
+			  </div>
+		</div>
+	</Container>
+</Layout>
+
+<style>
+  /* Add smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+</style> 

@@ -1,0 +1,264 @@
+---
+interface Props {
+  images: {
+    url: string;
+    title?: string;
+    description?: string;
+  }[];
+}
+
+const { images } = Astro.props;
+---
+
+<div class="swipe-container">
+  <div class="card-stack">
+    {images.map((image, index) => (
+      <div class="card" data-index={index}>
+        <div class="card-content">
+          <img src={image.url} alt={image.title || 'Gallery image'} />
+          <div class="card-overlay"></div>
+          {image.title && <h3 class="card-title">{image.title}</h3>}
+          {image.description && <p class="card-description">{image.description}</p>}
+        </div>
+      </div>
+    ))}
+    <div class="end-message">
+      <h2>Wow!<br/>We run out of posters already!</h2>
+    </div>
+  </div>
+  <div class="swipe-buttons">
+    <button class="swipe-button left" aria-label="Swipe left">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <button class="swipe-button right" aria-label="Swipe right">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<style>
+  .swipe-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .card-stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: grab;
+    overflow: hidden;
+  }
+
+  .card-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.7));
+    pointer-events: none;
+  }
+
+  .card-title {
+    position: absolute;
+    bottom: 120px;
+    left: 20px;
+    right: 20px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  .card-description {
+    position: absolute;
+    bottom: 90px;
+    left: 20px;
+    right: 20px;
+    color: white;
+    font-size: 16px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  .end-message {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .end-message h2 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    padding: 20px;
+    line-height: 1.4;
+  }
+
+  .swipe-buttons {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+  }
+
+  .swipe-buttons.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .swipe-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+  }
+
+  .swipe-button:hover {
+    transform: scale(1.1);
+  }
+
+  .swipe-button.left {
+    color: #ff4b4b;
+  }
+
+  .swipe-button.right {
+    color: #4bff4b;
+  }
+</style>
+
+<script>
+  let currentIndex = 0;
+  let startX = 0;
+  let currentX = 0;
+  const cards = document.querySelectorAll('.card');
+  const container = document.querySelector('.swipe-container');
+  const buttons = document.querySelector('.swipe-buttons');
+  const endMessage = document.querySelector('.end-message');
+
+  function updateCardPositions() {
+    cards.forEach((card, index) => {
+      if (index < currentIndex) {
+        (card as HTMLElement).style.transform = 'translateX(-100%)';
+      } else if (index === currentIndex) {
+        (card as HTMLElement).style.transform = `translateX(${currentX}px)`;
+      } else {
+        (card as HTMLElement).style.transform = 'translateX(100%)';
+      }
+    });
+
+    // Show end message if we've reached the end
+    if (currentIndex >= cards.length) {
+      if (endMessage) {
+        (endMessage as HTMLElement).style.transform = 'translateX(0)';
+      }
+      if (buttons) {
+        buttons.classList.add('hidden');
+      }
+    }
+  }
+
+  function handleSwipe(direction) {
+    const card = cards[currentIndex];
+    if (!card) return;
+
+    if (direction === 'right') {
+      // Download the image
+      const img = card.querySelector('img');
+      if (img) {
+        const link = document.createElement('a');
+        link.href = img.src;
+        link.download = `image-${currentIndex}.jpg`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    }
+
+    currentIndex++;
+    currentX = 0;
+    updateCardPositions();
+  }
+
+  // Touch events
+  container?.addEventListener('touchstart', (e: TouchEvent) => {
+    if (currentIndex >= cards.length) return;
+    startX = e.touches[0].clientX;
+  });
+
+  container?.addEventListener('touchmove', (e: TouchEvent) => {
+    if (!cards[currentIndex] || currentIndex >= cards.length) return;
+    currentX = e.touches[0].clientX - startX;
+    updateCardPositions();
+  });
+
+  container?.addEventListener('touchend', () => {
+    if (currentIndex >= cards.length) return;
+    if (Math.abs(currentX) > 100) {
+      handleSwipe(currentX > 0 ? 'right' : 'left');
+    } else {
+      currentX = 0;
+      updateCardPositions();
+    }
+  });
+
+  // Button clicks
+  document.querySelector('.swipe-button.left')?.addEventListener('click', () => handleSwipe('left'));
+  document.querySelector('.swipe-button.right')?.addEventListener('click', () => handleSwipe('right'));
+
+  // Initialize
+  updateCardPositions();
+</script> 

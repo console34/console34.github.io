@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AnimatedTooltipPreview from '../components/animated-tooltip-demo';
+---
+
+<Layout title="Animated Tooltip Demo">
+	<main class="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+		<div class="container mx-auto px-4 py-16">
+			<div class="text-center mb-12">
+				<h1 class="text-4xl font-bold text-white mb-4">Animated Tooltip Demo</h1>
+				<p class="text-lg text-gray-300">Hover over the avatars to see the animated tooltips in action!</p>
+			</div>
+			
+			<AnimatedTooltipPreview client:load />
+			
+			<div class="text-center mt-12">
+				<p class="text-gray-400 text-sm">
+					This uses React components with Framer Motion for smooth animations.
+				</p>
+			</div>
+		</div>
+	</main>
+</Layout>

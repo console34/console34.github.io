@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SwipeGallery from '../components/SwipeGallery.astro';
+
+// Example images - replace these with your actual images
+const images = [
+  {
+    url: 'public/images/posters/1.png',
+    title: 'Achille Fusco, Tommaso Sgrizzi',
+    description: 'IUSS Pavia'
+  },
+  {
+    url: 'public/images/posters/2.png',
+    title: 'Guido Formichi',
+    description: 'Oxford'
+  },
+  {
+    url: 'public/images/posters/3.png',
+    title: 'Sarah Rossi',
+    description: 'IUSS Pavia'
+  },
+  {
+    url: 'public/images/posters/4.png',
+    title: 'Bressan et al.',
+    description: 'University of Venice'
+  },
+  {
+    url: 'public/images/posters/5.png',
+    title: 'Achille Fusco',
+    description: 'IUSS Pavia, University of Florence'
+  },
+  // Add more images as needed
+];
+---
+
+<Layout title="Swipe Gallery">
+  <main class="container">
+    <h1>Swipe Gallery</h1>
+    <p class="instructions">
+      Swipe right to download an image, left to skip.
+      You can also use the buttons below the image.
+    </p>
+    <SwipeGallery images={images} />
+  </main>
+</Layout>
+
+<style>
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .instructions {
+    color: #666;
+    margin-bottom: 2rem;
+  }
+</style> 

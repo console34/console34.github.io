@@ -1,0 +1,59 @@
+---
+---
+
+<section class="bg-red-500 px-6 py-3">
+  <div class="relative pr-6">
+    <div class="flex flex-wrap items-center justify-center gap-5 text-center">
+      <p class="inline-flex text-sm font-medium text-white lg:text-base">
+        Hurry Up! Call for paper closes in
+      </p>
+      <div
+        id="countdown"
+        class="inline-flex items-center gap-1.5 text-lg font-medium text-white"
+      >
+        <span id="days" class="rounded-lg bg-white/10 px-4 py-2">00</span>
+        <span>:</span>
+        <span id="hours" class="rounded-lg bg-white/10 px-4 py-2">00</span>
+        <span>:</span>
+        <span id="minutes" class="rounded-lg bg-white/10 px-4 py-2">00</span>
+        <span>:</span>
+        <span id="seconds" class="rounded-lg bg-white/10 px-4 py-2">00</span>
+      </div>
+      <!--
+      <a
+        href="#"
+        class="text-sm font-medium text-white underline lg:text-base"
+      >
+        Submit→
+      </a>
+      -->
+    </div>
+  </div>
+</section>
+
+<script>
+  // Set the deadline date and time (yyyy-mm-ddTHH:MM:SS format)
+  const deadline = new Date("2025-05-15T23:59:59").getTime();
+
+  const countdownFunction = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = deadline - now;
+
+    if (distance <= 0) {
+      clearInterval(countdownFunction);
+      document.getElementById("countdown").innerHTML =
+        '<span class="text-white text-lg font-bold">Time\'s up!</span>';
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / 1000 / 60) % 60);
+    const seconds = Math.floor((distance / 1000) % 60);
+
+    document.getElementById("days").innerText = String(days).padStart(2, "0");
+    document.getElementById("hours").innerText = String(hours).padStart(2, "0");
+    document.getElementById("minutes").innerText = String(minutes).padStart(2, "0");
+    document.getElementById("seconds").innerText = String(seconds).padStart(2, "0");
+  }, 1000);
+</script>
