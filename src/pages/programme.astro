@@ -1,0 +1,71 @@
+---
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+import { changeLanguage } from "i18next";
+
+changeLanguage("en");
+
+const programData = [
+  {
+    date: "28 January",
+    presentations: [
+      { image: "public/images/programme/9-10.png", affiliation: "9-10" },
+      { image: "public/images/programme/10-11.png", affiliation: "10-11" },
+      { image: "public/images/programme/11-12.png", affiliation: "11-12" },
+      { image: "public/images/programme/13-14.png", affiliation: "13-14" },
+      { image: "title_slide2.jpg", affiliation: "MIT" },
+      { image: "title_slide2.jpg", affiliation: "MIT" },
+      { image: "title_slide2.jpg", affiliation: "MIT" },
+      { image: "title_slide2.jpg", affiliation: "MIT" },
+      { image: "title_slide2.jpg", affiliation: "MIT" },
+    ],
+  },
+  {
+    date: "5 February",
+    presentations: [
+      { image: "title_slide3.jpg", affiliation: "Oxford" },
+      { image: "title_slide4.jpg", affiliation: "Harvard" },
+    ],
+  },
+  {
+    date: "12 March",
+    presentations: [
+      { image: "title_slide5.jpg", affiliation: "UCL" },
+      { image: "title_slide6.jpg", affiliation: "UCLA" },
+      { image: "title_slide7.jpg", affiliation: "Max Planck Institute" },
+    ],
+  },
+];
+---
+
+<Layout title="Conference Program">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Conference Program</Fragment>
+      <Fragment slot="desc">Explore our daily lineup of presentations</Fragment>
+    </Sectionhead>
+
+    <div class="space-y-12 mt-10">
+      {programData.map((day) => (
+        <div>
+          <h2 class="text-xl font-bold mb-4">{day.date}</h2>
+          <div class="flex space-x-6 overflow-x-auto pb-4">
+            {day.presentations.map((presentation) => (
+              <div class="relative flex-shrink-0 w-64 group">
+                <div class="rounded-lg shadow-lg transform transition-transform duration-300 group-hover:scale-105">
+                  <img
+                    src={presentation.image}
+                    alt=""
+                    class="w-full h-40 object-cover rounded-lg"
+                  />
+                </div>
+                <div class="text-center mt-2 text-sm italic">{presentation.affiliation}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </Container>
+</Layout>

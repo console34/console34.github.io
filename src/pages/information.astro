@@ -1,0 +1,203 @@
+---
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Button from "@components/ui/button.astro";
+import Layout from "@layouts/Layout.astro";
+import { changeLanguage } from "i18next";
+
+changeLanguage("en");
+
+const contacts = [
+	{
+		title: "How to get there",
+		text: "The University School for Advanced Studies IUSS Pavia is located in Piazza della Vittoria 15, 27100 Pavia (Italy). The School is in the city center of Pavia and can be easily reached within a 10-minute walk away from the Pavia railway station and most carparks (more info on the School can be found at the bottom of this page). If you are interested in the history of the IUSS School, please follow this link!",
+		phone: "+1 (555) 555-5555",
+	},
+	{
+		title: "Human Resources",
+		text: "test@yourcompany.com",
+		phone: "+1 (555) 555-5555",
+	},
+	{
+		title: "Finance",
+		text: "test@yourcompany.com",
+		phone: "+1 (555) 555-5555",
+	},
+	{
+		title: "Research and Development",
+		text: "test@yourcompany.com",
+		phone: "+1 (555) 555-5555",
+	},
+];
+---
+<Layout title="Practical Information">
+	<Container>
+	  <Sectionhead>
+		<!-- Leaflet CSS -->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+		<!-- Leaflet JS -->
+		<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+		<Fragment slot="title">Practical Information</Fragment>
+		<Fragment slot="desc">and other related questions</Fragment>
+	  </Sectionhead>
+  
+	  <div class="py-24 sm:py-32">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+		  <div class="mx-auto max-w-2xl space-y-16 divide-y divide-gray-100 lg:mx-0 lg:max-w-none">
+			<div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-3">
+			  <div>
+				<h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">The venue</h2>
+				<p class="mt-4 leading-7 text-gray-600 dark:text-gray-200">
+				  ConSOLE34 will be held in the <b>Sala del Camino (Aula Magna)</b> at the <b>University School for Advanced Studies IUSS Pavia.</b>
+				</p>
+			  </div>
+  
+			  <div class="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:col-span-2 lg:gap-8">
+				<div class="travel-info">
+				<p style="text-align: justify;">
+				  The University School for Advanced Studies IUSS Pavia is located in Piazza della Vittoria 15, 27100 Pavia (Italy).
+				  The School is in the city center of Pavia and can be easily reached within a 10-minute walk away from the Pavia railway station and most carparks (more info on the School can be found at the bottom of this page).
+				  If you are interested in the history of the IUSS School, please follow this <u><a href="https://www.iusspavia.it/en/node/51">link</a></u>.
+				</p>
+			</div>
+				<div id="map" style="height: 400px; width: 100%;"></div>
+				<hr>
+				<script>
+				  document.addEventListener('astro:page-load', () => {
+					const map = L.map('map').setView([45.184799, 9.1542472], 20); // Corrected coordinates
+  
+					L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+					  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+					}).addTo(map);
+  
+					L.marker([45.184799, 9.1542472]).addTo(map) // Corrected coordinates
+					  .bindPopup('IUSS Pavia<br>Piazza della Vittoria 15, Pavia');
+				  });
+				</script>
+			  </div>
+  
+			  <div>
+				<h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">How to get to Pavia</h2>
+				<p class="mt-4 leading-7 text-gray-600 dark:text-gray-200">
+				</p>
+			  </div>
+  
+			  <div class="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:col-span-2 lg:gap-8">
+				<div class="travel-info">
+				  <h2><b><u>By Air</u></b></h2>
+				  <p style="text-align: justify;">There is no direct service (bus or train) connecting Milan airports - Milan Linate, Milan Malpensa Terminal 1 and 2, and Milan Bergamo (Orio al Serio) - to Pavia (and vice versa).</p>
+				  <p style="text-align: justify;">However, Pavia is conveniently reachable from Milan Central Station ("Milano Centrale", Piazza Luigi di Savoia). Connections from Milan airports are available to Milan Central Station, from which you can take a direct train to Pavia (see next section).</p>
+  
+				  <h3><b>Milano Linate Airport</b></h3>
+				  <p>The airport offers several shuttle services to Milan Central Station:</p>
+				  <ul>
+					<li><a href="https://www.milano-aeroporti.it/linate-shuttle/en/index.html" target="_blank">Linate Shuttle</a></li>
+					<li><a href="https://www.airportbus.com" target="_blank">Airportbus Express</a></li>
+				  </ul>
+				  <p style="text-align: justify;">Tickets for these shuttle services may be bought on-board or online by following the above links (English versions are available by clicking the relevant flag on the upper-right corner of the pages).</p>
+  
+				  <p style="text-align: justify;">If you are landing in Milan Linate, you may also want to consider taking a train to Pavia from Milan Dateo station. The Milan Dateo station can be easily reached from Milan Linate Airport by subway (Milan M4, blue line). In Milan Dateo station, take the direct train S13 to Pavia (operated by Trenord - see below).</p>
+  
+				  <h3><b>Milano Malpensa Airport (Terminal 1 and 2)</b></h3>
+				  <p>Transfer shuttles to Milan Central Station are also available:</p>
+				  <ul>
+					<li><a href="https://www.malpensaexpress.it" target="_blank">Malpensa Express (train)</a></li>
+					<li><a href="https://www.malpensashuttle.it/en/index.html" target="_blank">Malpensa Shuttle</a></li>
+				  </ul>
+				  <p style="text-align: justify;">Tickets for these services may be bought on-board or online by following the above links (English versions are available by clicking the relevant flag on the upper-right corner of the pages).</p>
+  
+				  <p style="text-align: justify;">If you are landing in Milan Malpensa, you may also want to consider taking a train to Pavia from Milan Bovisa Politecnico station. The Milan Bovisa Politecnico station can be easily reached from Milan Malpensa Airport with the Malpensa Express train: the Malpensa Express comes in two guises: one has as its final destination Milan Cadorna, the other has as its final destination Milan Central Station. You may take either, as they both stop at Milan Bovisa Politecnico. In Milan Bovisa Politecnico station, take the direct train S13 to Pavia (operated by Trenord - see below).</p>
+  
+				  <h3><b>Milano Bergamo Airport</b></h3>
+				  <p>Shuttle services to Milan Central Station are also provided:</p>
+				  <ul>
+					<li><a href="https://www.orioshuttle.com" target="_blank">Orio Shuttle</a></li>
+					<li><a href="https://www.flixbus.com" target="_blank">Flibco</a></li>
+					<li><a href="https://www.itabus.it" target="_blank">Itabus</a></li>
+				  </ul>
+				  <p style="text-align: justify;">Tickets for these shuttle services may be bought on-board or online by following the above links (English versions are available by clicking the relevant flag on the upper-right corner of the pages).</p>
+  
+				  <p style="text-align: justify;">Please note that there is no train station in Milan Bergamo Airport, so taxis and shuttles are the only option to directly reach Milan from this airport.</p>
+				  
+				  <h2><b><u>By Train</u></b></h2>
+				  <p style="text-align: justify;">Pavia can be reached in approximately 40 minutes by train from several Milan railway stations, including Central, Lambrate, Rogoredo, Porta Vittoria, Dateo, Greco Pirelli, Porta Garibaldi, and Bovisa Politecnico. For detailed schedules and rates, refer to <a href="https://www.trenitalia.com/en.html" target="_blank">Trenitalia</a>.</p>
+  
+				  <p style="text-align: justify;">Trains to Pavia are operated by Trenord and Trenitalia. Tickets for trains operated by both Trenord and Trenitalia can be bought online (on the <a href="https://www.trenitalia.com/en.html" target="_blank">Trenitalia</a> website or smartphone app) or from the several automatic machines available in any train station, including the train station in Milan Malpensa airport. We strongly recommend buying online tickets.
+
+				  </p>
+  
+				  <p style="text-align: justify;">If you are in any of the following train stations in Milan (Bovisa Politecnico, Porta Garibaldi, Dateo, Porta Vittoria, Rogoredo), the train line S13 operated by Trenord is the best option to get to Pavia. Please note that Pavia is the final destination of train line S13, and that there is only one station in Pavia, so you can't miss it. Make sure not to get off at Certosa di Pavia, which is a different village.</p>
+				</div>
+				
+			  </div>
+			  <div>
+				<h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Once at IUSS</h2>
+				<p class="mt-4 leading-7 text-gray-600 dark:text-gray-200">
+				</p>
+			  </div>
+  
+			  <div class="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:col-span-2 lg:gap-8">
+				<div class="travel-info">
+					<h2><b><u>Palazzo del Broletto</u></b></h2>
+					<p style="text-align: justify;">The University School of Advanced Studies IUSS Pavia is located in the XII-century Palazzo del Broletto.</p>
+				  
+				
+					<p style="text-align: justify;">The building is placed in Piazza della Vittoria (formerly Piazza Grande), and it's the oldest palace in the whole of Lombardy. This palace was the residence of Pavia's bishop; after following buildups, it became Pavia's town hall.</p>
+	
+					<p style="text-align: justify;">The Palazzo del Broletto has a collonaded inner courtyard with a beautiful view of the majestic apsis of the Cathedral.
+  
+					</p>
+					<img src="/saladelcamino1.jpg" alt="Sala del Camino at IUSS Pavia">
+	</div> <hr>
+			</div>
+			
+		  </div>
+		</div>
+	  </div>
+	</Container>
+	<style>
+		.travel-info {
+			line-height: 1.4;
+			@apply text-gray-700 dark:text-gray-300;
+		}
+	
+		.travel-info h2 {
+			font-size: 1.5rem;
+			font-weight: bold;
+			margin-top: 0rem;
+			margin-bottom: 1rem;
+			@apply text-gray-800 dark:text-gray-200;
+		}
+	
+		.travel-info h3 {
+			font-size: 1.25rem;
+			font-weight: bold;
+			margin-top: 1.25rem;
+			margin-bottom: 0.75rem;
+			@apply text-gray-900 dark:text-gray-100;
+		}
+	
+		.travel-info p {
+			margin-bottom: 1rem;
+		}
+	
+		.travel-info ul {
+			list-style-type: disc;
+			margin-left: 1.5rem;
+			margin-bottom: 1rem;
+		}
+	
+		.travel-info ul li {
+			margin-bottom: 0.5rem;
+		}
+	
+		.travel-info a {
+			@apply text-blue-600 dark:text-blue-400;
+			text-decoration: none;
+		}
+	
+		.travel-info a:hover {
+			text-decoration: underline;
+		}
+	</style>
+  </Layout>
