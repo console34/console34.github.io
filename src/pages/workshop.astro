@@ -8,6 +8,8 @@ import Layout from "@layouts/Layout.astro";
 import Logos from "@components/logos-noduomo.astro";
 import { changeLanguage } from "i18next";
 import AnimatedTooltipPreview from '../components/animated-tooltip-demo-workshop';
+import ThreeDCardDemo from '../components/3d-card-demo';
+
 
 changeLanguage("en");
 ---
@@ -29,30 +31,169 @@ changeLanguage("en");
     </div>
 </div>
 
-		<section class="py-12">
-			<h2 class="text-3xl font-bold text-center mb-8">Workshop Information</h2>
-			<div class="max-w-4xl mx-auto">
-				<h3 class="text-2xl font-semibold mb-4">Keynote Speaker</h3>
-				<p class="mb-4">Prof. Marco Tettamanti is a renowned expert in the field of neurolinguistics. He has published numerous papers and books on the subject and ....</p>
-				<h3 class="text-2xl font-semibold mb-4">Call for Papers</h3>
-				<p class="mb-4">We invite submissions of original research papers on topics related to neurolinguistics. Submissions should be in English and should not exceed 2 pages in length.</p>
-				<h3 class="text-2xl font-semibold mb-4">Deadlines</h3>
-				<p class="mb-4">Submission Deadline: xxxx26<br>Notification of Acceptance: xxxx</p>
-				<h3 class="text-2xl font-semibold mb-4">Topics</h3>
-				<p class="mb-4">Topics of interest include, but are not limited to:</p>
-				<ul class="list-disc pl-5 mb-4">
-					<li>Language acquisition and development</li>
-					<li>Neurolinguistic processing</li>
-					<li>Bilingualism and multilingualism</li>
-					<li>Language disorders and rehabilitation</li>
-					<li>Computational models of language processing</li>
+		<div class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
+			
+								<h3 class="text-2xl text-center font-semibold mb-4">Keynote Speaker</h3>
+				<div class="flex justify-center mb-6">
+					<div class="relative overflow-hidden rounded-md shadow-lg group w-64 h-64 aspect-square">
+						<img
+							src="/images/keynotes/mt.png"
+							alt="Prof. Marco Tettamanti"
+							class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+						/>
+						<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent transition-opacity group-hover:from-black/80"></div>
+						<div class="absolute bottom-0 w-full p-4 text-center">
+							<h4 class="text-white text-lg font-semibold">Prof. Marco Tettamanti</h4>
+							<p class="text-white text-sm">IRCCS San Raffaele, Milan</p>
+						</div>
+					</div>
+				</div>  
+				<div class="prose prose-lg dark:prose-invert mb-8 text-justify">
+				</div>
+				
+				<hr class="my-4 border-t-2 border-gray-300" />
+
+				<div class="prose prose-lg dark:prose-invert mb-8 text-justify">
+					<h1 class="text-2xl text-center font-semibold mb-4">Call for Papers</h1>
+					<p>This workshop is part of the broader ConSOLE 2026 theme, <i>"Language across domains"</i>, which aims to bring together diverse strands of linguistic research, from phonology to semantics, syntax, and computational modeling. 
+						This year's workshop will welcome cutting-edge research in <b>neurolinguistics</b>, <b>language acquisition</b>, and <b>cognitive science</b>, focusing on <b>the neural foundations and developmental trajectories underlying language abilities</b>, throughout the lifespan.
+						</p>
+					<p>We invite abstract submissions for both <b>oral</b> (20-minute talk plus additional 10 minutes for questions and discussion) and <b>poster</b> presentations. We welcome abstracts from <b>a broad field of neurolinguistics topics and methodologies</b>, including both basic and clinical perspectives.
+					</p>
+					<p>We welcome submissions on <b>topics</b> including, but not limited to:</p>
+					<ul>
+						<li>Neurocognitive trajectories of language acquisition</li>
+						<li>Prenatal and early postnatal predictors of linguistic abilities</li>
+						<li>Language development in neurodivergent or clinical populations</li>
+						<li>Language processing in healthy and pathological aging</li>
+						<li>Experimental approaches to neurolinguistics and psycholinguistics</li>
+						<li>Neuroimaging and electrophysiological studies of language</li>
+						<li>Computational and statistical modeling of language</li>
+						<li>Cross-linguistic and cross-population perspectives on language</li>
+					</ul>
+				</div>
+				<!-- Submission Criteria -->
+			<div class="mb-12">
+				<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Submission Criteria</h2>
+				<ul class="space-y-4 text-gray-600 dark:text-gray-300 text-justify">
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3">Abstracts must not exceed <b>250 words</b>.
+
+						</span>
+					</li>
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3">Abstracts should be submitted in <b>English</b> and <b>anonymized</b> for peer review.
+							</span>
+					</li>
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3">Each participant may be a co-author on an <b>unlimited number of submissions within the workshop</b>, but may submit <b>only one abstract</b> (whether single-authored or co-authored) <b>to the main session</b>.</span>
+					</li>
+					<li class="flex items-start">
+						<span class="flex h-6 items-center">
+							<svg class="h-5 w-5 text-gray-400 dark:text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+							</svg>
+						</span>
+						<span class="ml-3"> However, each person may submit <b>a maximum of two contributions as first author</b> (oral and/or poster).
+
+						</span>
+					</li>
+					
 				</ul>
 			</div>
-			<br/>
-			<br/>
-			<div class="text-left">
-				<AnimatedTooltipPreview client:load />
-			  </div>
+				<!-- Application Procedure -->
+			<div class="mb-12">
+				<h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Application Procedure</h2>
+				<div class="prose prose-lg dark:prose-invert text-justify">
+					<p>
+						To apply, follow the instructions on Oxford Abstracts. 
+					</p>
+					
+				</div>
+				
+			</div>
+<!-- acceptance and travel grant notifications -->
+<div class="mb-12">
+	<div class="rounded-lg border-l-4 border-blue-500 bg-blue-50 dark:bg-blue-900/30 p-6 shadow-sm">
+	  <div class="flex">
+		<div class="flex-shrink-0">
+		  <!-- Info Icon -->
+		  <svg class="h-6 w-6 text-blue-600 dark:text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 6a9 9 0 100 18 9 9 0 000-18z" />
+		  </svg>
+		</div>
+		<div class="ml-4">
+		  <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
+			Travel Grants
+		  </h2>
+		  <p class="mt-2 text-gray-700 dark:text-gray-300">
+			If you want to be considered for a travel grant, please indicate this in the submission form. See the relevant <a href="/grants" class="text-blue-600 dark:text-blue-400 hover:underline">Travel Grants page</a> for more information.</p>
+		</p>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+  <div class="mb-12">
+	<div class="rounded-lg border-l-4 border-green-500 bg-green-50 dark:bg-blue-900/30 p-6 shadow-sm">
+	  <div class="flex">
+		<div class="flex-shrink-0">
+		  <!-- Info Icon -->
+		  <svg class="h-6 w-6 text-blue-600 dark:text-blue-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 6a9 9 0 100 18 9 9 0 000-18z" />
+		  </svg>
+		</div>
+		<div class="ml-4">
+		  <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
+			Main Session
+		  </h2>
+		  <p class="mt-2 text-gray-700 dark:text-gray-300">
+			If you want to apply for the Main Session, see the call at the <a href="/call-for-papers" class="text-blue-600 dark:text-blue-400 hover:underline">dedicated page</a> for more information.</p>
+		</p>
+		</div>
+	  </div>
+	</div>
+  </div>
+					
+						
+
+			<!-- Contact Section -->
+			<div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
+				<div class="prose prose-lg dark:prose-invert text-justify">
+					<h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Contact</h2>
+					<p>
+						For any questions, please contact us at{" "}
+						<a href="mailto:console34@iusspavia.it" class="text-blue-600 dark:text-blue-400 hover:underline">
+							console34@iusspavia.it
+						</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br/>
+		<div class="text-left">
+			<AnimatedTooltipPreview client:load />
+		  </div>
+		  
+		  
+		
+	</Container>
 		</section>
 		
 	</Container>

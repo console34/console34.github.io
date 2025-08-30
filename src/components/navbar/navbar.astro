@@ -5,6 +5,9 @@ import { localizePath } from "astro-i18next";
 import { Icon } from "astro-icon/components";
 import { t } from "i18next";
 
+// figure out the current path
+const currentPath = Astro.url.pathname;
+
 export const menuitems = [
   /* {
     title: "Calls for papers",
@@ -40,8 +43,8 @@ export const menuitems = [
 		<a
 			href={localizePath("/")}
 			class="flex gap-3 items-center text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">
-			<img src="/images/logos/logo.png" width="30" className="dark:invert" alt="Logo" />
-			<img src="/images/logos/logo_text.png" width="120" className="dark:invert" alt="Logo" />
+			<img src="/images/logos/logo.png" width="30" class="dark:invert" alt="Logo" />
+			<img src="/images/logos/logo_text.png" width="120" class="dark:invert" alt="Logo" />
 		</a>
 		<button class="md:hidden text-gray-500 w-10 h-10 relative focus:outline-none" @click="open = !open">
 			<span class="sr-only">Open main menu</span>
@@ -154,9 +157,14 @@ export const menuitems = [
 			}
 		</div>
 		<div class="mt-4 md:mt-0 flex flex-col md:flex-row gap-4">
-			<Link href="\workshop" style="outline" class="md:px-3 md:py-2 leading-6">
-				{t("Workshop")}
-			</Link>
+			<Link
+  href={currentPath === "/workshop" ? "/call-for-papers" : "/workshop"}
+  style="outline"
+  class="md:px-3 md:py-2 leading-6"
+>
+  {currentPath === "/workshop" ? t("Main Session") : t("Workshop")}
+</Link>
+
 			<Link href="https://www.example.com" class="md:px-3 md:py-2 leading-6">
 				{t("Call for papers")}
 			</Link>
