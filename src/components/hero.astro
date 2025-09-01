@@ -53,7 +53,7 @@ const { dynamic = false } = Astro.props;
 					{dynamic ? t("Pavia | 28 January 2026") : t("Pavia | 28-30 January 2026")}
 				</p>
 				<div class="mt-10 flex items-center justify-center gap-x-2 md:gap-x-6">
-					<Link href={dynamic ? "https://www.example.com" : "/call-for-papers"} style={dynamic ? "primary" : undefined} class={dynamic ? "bg-green-900 hover:bg-green-800 dark:bg-green-900 dark:hover:bg-green-800" : ""}>{t("Call for papers")}</Link>
+					<Link href={dynamic ? "https://easyabs.linguistlist.org/conference/NeurWorkshopConSOLE/" : "/call-for-papers"} style={dynamic ? "primary" : undefined} class={dynamic ? "bg-green-900 hover:bg-green-800 dark:bg-green-900 dark:hover:bg-green-800" : ""} target={dynamic ? "_blank" : undefined} rel={dynamic ? "noopener noreferrer" : undefined}>{t("Call for papers")}</Link>
 					{
 						dynamic ? (
 							<Link href="/" style="muted">
