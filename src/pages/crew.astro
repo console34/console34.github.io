@@ -23,7 +23,6 @@ import { Image } from "astro:assets";
                     src="/images/crew/alessandra.jpg" 
                     alt="Alessandra"
                     class="rounded-full p-2 w-full crew-photo"
-                    loading="lazy"
                   />
                 </a>
               </div>
@@ -495,26 +494,6 @@ import { Image } from "astro:assets";
   
   // Setup after view transitions
   document.addEventListener('astro:after-swap', setupHoverTexts);
-    
-    // Handle lazy loading for crew images
-    function setupLazyLoading() {
-      const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-      const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            img.classList.add('loaded');
-            observer.unobserve(img);
-          }
-        });
-      });
-      
-      lazyImages.forEach(img => imageObserver.observe(img));
-    }
-    
-    // Setup lazy loading
-    setupLazyLoading();
-    document.addEventListener('astro:after-swap', setupLazyLoading);
 </script> 
 
 <style>
@@ -522,15 +501,5 @@ import { Image } from "astro:assets";
   .crew-photo {
     content-visibility: auto;
     contain: layout style paint;
-  }
-  
-  /* Smooth loading for images */
-  img[loading="lazy"] {
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-  }
-  
-  img[loading="lazy"].loaded {
-    opacity: 1;
   }
 </style> 
