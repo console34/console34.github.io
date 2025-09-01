@@ -39,6 +39,7 @@ const makeTitle = title
 		crossorigin=""></script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="color-scheme" content="light" />
 		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="theme-color" content="#ffffff" />
@@ -79,12 +80,15 @@ const makeTitle = title
 
 		<script is:inline>
 			function handleThemeChange() {
+			  // Always default to light theme, ignore system preferences
 			  if (localStorage.theme === "dark") {
-				// User explicitly chose dark
+				// Only use dark if user explicitly chose it
 				document.documentElement.classList.add("dark");
 			  } else {
-				// Default to light always
+				// Default to light always, regardless of system preference
 				document.documentElement.classList.remove("dark");
+				// Force light theme in localStorage
+				localStorage.theme = "light";
 			  }
 			}
 			handleThemeChange();
@@ -116,6 +120,16 @@ const makeTitle = title
 			
 			img[loading="lazy"].loaded {
 				opacity: 1;
+			}
+			
+			/* Force light theme as default */
+			:root {
+				color-scheme: light;
+			}
+			
+			/* Ensure light theme unless explicitly set to dark */
+			html:not(.dark) {
+				color-scheme: light !important;
 			}
 		</style>
 		
