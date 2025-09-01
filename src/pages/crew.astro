@@ -19,13 +19,10 @@ import { Image } from "astro:assets";
             <div class="flex items-start gap-3">
               <div class="w-1/4">
                 <a href="#">
-                  <Image 
+                  <img 
                     src="/images/crew/alessandra.jpg" 
                     alt="Alessandra"
-                    class="rounded-full p-2 w-full"
-                    width={100}
-                    height={100}
-                    format="webp"
+                    class="rounded-full p-2 w-full crew-photo"
                     loading="lazy"
                   />
                 </a>
@@ -70,7 +67,7 @@ import { Image } from "astro:assets";
                   <img 
                     src="/images/crew/giorgia.png" 
                     alt="Giorgia"
-                    class="rounded-full p-2 w-full"
+                    class="rounded-full p-2 w-full crew-photo"
                   />
                 </a>
               </div>
@@ -106,7 +103,7 @@ import { Image } from "astro:assets";
                   <img 
                     src="/images/crew/francesca.png" 
                     alt="Francesca"
-                    class="rounded-full p-2 w-full"
+                    class="rounded-full p-2 w-full crew-photo"
                   />
                 </a>
               </div>
@@ -150,7 +147,7 @@ import { Image } from "astro:assets";
                   <img 
                     src="/images/crew/elce.png" 
                     alt="Elce"
-                    class="rounded-full p-2 w-full"
+                    class="rounded-full p-2 w-full crew-photo"
                   />
                 </a>
               </div>
@@ -186,7 +183,7 @@ import { Image } from "astro:assets";
                   <img 
                     src="/images/crew/guido.png" 
                     alt="Guido"
-                    class="rounded-full p-2 w-full"
+                    class="rounded-full p-2 w-full crew-photo"
                   />
                 </a>
               </div>
@@ -231,7 +228,7 @@ import { Image } from "astro:assets";
                   <img 
                     src="/images/crew/erica.png" 
                     alt="Eri"
-                    class="rounded-full p-2 w-full"
+                    class="rounded-full p-2 w-full crew-photo"
                   />
                 </a>
               </div>
@@ -271,7 +268,7 @@ import { Image } from "astro:assets";
                   <img 
                     src="/images/crew/sofia.png" 
                     alt="Eri"
-                    class="rounded-full p-2 w-full"
+                    class="rounded-full p-2 w-full crew-photo"
                   />
                 </a>
               </div>
@@ -308,7 +305,7 @@ import { Image } from "astro:assets";
                   <img 
                     src="/images/crew/sarah.jpeg" 
                     alt="Sarah"
-                    class="rounded-full p-2 w-full"
+                    class="rounded-full p-2 w-full crew-photo"
                   />
                 </a>
               </div>
@@ -353,7 +350,7 @@ import { Image } from "astro:assets";
                   <img 
                     src="/images/crew/tom.png" 
                     alt="Tom"
-                    class="rounded-full p-2 w-full"
+                    class="rounded-full p-2 w-full crew-photo"
                   />
                 </a>
               </div>
@@ -398,7 +395,7 @@ import { Image } from "astro:assets";
                   <img 
                     src="/images/crew/asya.png" 
                     alt="Asya"
-                    class="rounded-full p-2 w-full"
+                    class="rounded-full p-2 w-full crew-photo"
                   />
                 </a>
               </div>
@@ -498,4 +495,42 @@ import { Image } from "astro:assets";
   
   // Setup after view transitions
   document.addEventListener('astro:after-swap', setupHoverTexts);
+    
+    // Handle lazy loading for crew images
+    function setupLazyLoading() {
+      const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.classList.add('loaded');
+            observer.unobserve(img);
+          }
+        });
+      });
+      
+      lazyImages.forEach(img => imageObserver.observe(img));
+    }
+    
+    // Setup lazy loading
+    setupLazyLoading();
+    document.addEventListener('astro:after-swap', setupLazyLoading);
 </script> 
+
+<style>
+  /* Image optimization for crew photos */
+  .crew-photo {
+    content-visibility: auto;
+    contain: layout style paint;
+  }
+  
+  /* Smooth loading for images */
+  img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  img[loading="lazy"].loaded {
+    opacity: 1;
+  }
+</style> 
