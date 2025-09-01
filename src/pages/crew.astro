@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
+import { Image } from "astro:assets";
 ---
 
 <Layout title="Organizing Committee">
@@ -18,10 +19,14 @@ import Sectionhead from "@components/sectionhead.astro";
             <div class="flex items-start gap-3">
               <div class="w-1/4">
                 <a href="#">
-                  <img 
+                  <Image 
                     src="/images/crew/alessandra.jpg" 
                     alt="Alessandra"
                     class="rounded-full p-2 w-full"
+                    width={100}
+                    height={100}
+                    format="webp"
+                    loading="lazy"
                   />
                 </a>
               </div>

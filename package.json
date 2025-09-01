@@ -60,7 +60,7 @@
 		"@vite-pwa/astro": "^0.3.1",
 		"gh-pages": "^6.3.0",
 		"rehype": "^13.0.1",
-		"sharp": "^0.33.3",
+		"sharp": "^0.33.5",
 		"workbox-window": "^7.0.0"
 	}
 }

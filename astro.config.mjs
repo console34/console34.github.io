@@ -69,7 +69,20 @@ export default defineConfig({
 			},
 			workbox: {
 				navigateFallback: "/404",
-				globPatterns: ["*.js"],
+				globPatterns: ["*.js", "*.css", "*.png", "*.webp", "*.jpg", "*.jpeg", "*.apng"],
+				runtimeCaching: [
+					{
+						urlPattern: /\.(?:png|jpg|jpeg|webp|avif|svg|apng)$/,
+						handler: 'CacheFirst',
+						options: {
+							cacheName: 'images',
+							expiration: {
+								maxEntries: 100,
+								maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
+							},
+						},
+					},
+				],
 			},
 			devOptions: {
 				enabled: false,

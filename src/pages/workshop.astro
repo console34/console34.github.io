@@ -9,6 +9,7 @@ import Logos from "@components/logos-noduomo.astro";
 import { changeLanguage } from "i18next";
 import AnimatedTooltipPreview from '../components/animated-tooltip-demo-workshop';
 import ThreeDCardDemo from '../components/3d-card-demo';
+import { Image } from "astro:assets";
 
 
 changeLanguage("en");
@@ -18,13 +19,15 @@ changeLanguage("en");
 	<Container>
 		<Hero dynamic={true} />
 		<div class="w-full flex justify-center items-center group relative">
-    <img 
+    <Image 
         id="animatedImage"
         class="transition-transform duration-300 ease-in-out group-hover:scale-105 w-full lg:w-[1000px]" 
         src="/images/logos/ponte.apng" 
         alt="Ponte Coperto in Pavia" 
-        width="3000" 
-        height="3000" 
+        width={3000} 
+        height={3000}
+        format="auto"
+        loading="lazy"
     />
     <div class="absolute bottom-4 bg-black/70 text-white text-sm md:text-base px-4 py-2 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-md pointer-events-none">
         Pavia's Ponte Coperto, one of the main attractions of the city
@@ -36,10 +39,14 @@ changeLanguage("en");
 								<h3 class="text-2xl text-center font-semibold mb-4">Keynote Speaker</h3>
 				<div class="flex justify-center mb-6">
 					<div class="relative overflow-hidden rounded-md shadow-lg group w-64 h-64 aspect-square">
-						<img
+						<Image
 							src="/images/keynotes/mt.png"
 							alt="Marco Tettamanti"
 							class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+							width={256}
+							height={256}
+							format="webp"
+							loading="lazy"
 						/>
 						<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent transition-opacity group-hover:from-black/80"></div>
 						<div class="absolute bottom-0 w-full p-4 text-center">
