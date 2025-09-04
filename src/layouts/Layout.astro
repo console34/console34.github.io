@@ -3,7 +3,6 @@ import { ViewTransitions } from "astro:transitions";
 import { pwaInfo } from "virtual:pwa-info";
 import Footer from "@components/footer.astro";
 import Navbar from "@components/navbar/navbar.astro";
-import LoadingScreen from "@components/LoadingScreen.astro";
 import "@fontsource-variable/inter";
 import { HeadHrefLangs } from "astro-i18next/components";
 import { SEO } from "astro-seo";
@@ -109,7 +108,6 @@ const makeTitle = title
 		<script src="/src/pwa.ts"></script>
 	</head>
 	<body class="dark:bg-stone-950">
-		<LoadingScreen />
 		<Navbar />
 		<slot />
 		<Footer />
