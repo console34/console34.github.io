@@ -11,6 +11,13 @@ const people = [
       "/images/crew/guido.png",
   },
   {
+    id: 13,
+    name: "Albina Mukusheva",
+    designation: "IUSS Pavia",
+    image:
+     "/images/crew/albina.png" },
+
+  {
     id: 2,
     name: "Sofia Neri",
     designation: "IUSS Pavia",

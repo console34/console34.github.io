@@ -42,6 +42,12 @@ const people = [
       designation: "IMT Lucca",
       image:
        "/images/crew/erica.png" },
+       {
+        id: 13,
+        name: "Albina Mukusheva",
+        designation: "IUSS Pavia",
+        image:
+         "/images/crew/albina.png" },   
     {
       id: 7,
       name: "Sofia Neri",
