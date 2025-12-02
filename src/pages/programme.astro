@@ -2,6 +2,7 @@
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
 import Layout from "@layouts/Layout.astro";
+import Banner from "@components/banner.astro";
 import { changeLanguage } from "i18next";
 
 changeLanguage("en");
@@ -140,6 +141,11 @@ const heroImage = "/images/camino.jpg";
           <p class="text-xl text-gray-300">Explore our daily lineup of presentations</p>
         </Container>
       </div>
+    </div>
+
+    <!-- Logos banner under hero -->
+    <div class="mt-8 flex justify-center">
+      <Banner />
     </div>
 
     <Container>

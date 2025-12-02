@@ -4,8 +4,7 @@ import Cobe from "@components/cobe.astro";
 import Link from "@components/ui/link.astro";
 import abstractDottedGlobeIllustration from "assets/abstract-dotted-globe-illustration.png";
 import { t } from "i18next";
-import Logos from "@components/logos.astro";
-import LogosNoduomo from "@components/logos-noduomo.astro";
+import Banner from "@components/banner.astro";
 
 const { dynamic = false } = Astro.props;
 ---
@@ -39,18 +38,19 @@ const { dynamic = false } = Astro.props;
 			<div class="mx-auto max-w-1xl text-center">
 				<div class="flex justify-center items-center w-full">
 					<div class="text-center">
-						<div class="flex justify-center items-center w-full">
+						<div class="mt-8 flex justify-center items-center w-full">
 							<Image 
 								src={dynamic ? "/images/logos/workshop_logo.apng" : "/images/logos/sliding_doors.apng"} 
 								alt="Logo" 
-								class="banner-img mx-auto object-contain dark:invert"
+								class="banner-img mx-auto object-contain"
 								width={800}
 								height={400}
 								format="auto"
 								loading="eager"
 								decoding="async"
 							/>
-						</div>						  
+						</div>
+									  
 					</div>
 				</div>							
 				{/* <h1 class="text-4xl font-bold tracking-tight text-black dark:text-white sm:text-6xl">{t("ConSOLE34")}</h1>*/}
@@ -84,8 +84,8 @@ const { dynamic = false } = Astro.props;
 					}
 				</div>
 			</div>
-			<div>
-				{dynamic ? <LogosNoduomo /> : <Logos />}
+			<div class="mt-10">
+				<Banner />
 			</div>
 			
 		</div>

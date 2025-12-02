@@ -1,0 +1,14 @@
+---
+const { class: className = "" } = Astro.props;
+---
+
+<div class={`flex justify-center items-center ${className}`}>
+  <img
+    src="/images/logos/banner_ufficiale.png"
+    alt="Logos banner"
+    class="max-w-full h-auto"
+    loading="eager"
+  />
+</div>
+
+
