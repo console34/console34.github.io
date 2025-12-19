@@ -1,0 +1,593 @@
+---
+import Container from "@components/container.astro";
+import Layout from "@layouts/Layout.astro";
+import Banner from "@components/banner.astro";
+import { changeLanguage } from "i18next";
+
+changeLanguage("en");
+
+// Program data - separated into talks and posters
+const programData = [
+  {
+    date: "28th January",
+    posterSessionName: "Poster Session (Workshop)",
+    talks: [
+      {
+        time: "9:00 - 9:15",
+        speaker: "",
+        title: "Welcome & Introduction (IMT)",
+        chair: "",
+        type: "break"
+      },
+      {
+        time: "9:15 - 10:15",
+        speaker: "Marco Tettamanti",
+        title: "Keynote Speaker",
+        chair: "",
+        type: "keynote"
+      },
+      {
+        time: "10:15 - 10:45",
+        speaker: "Anna Mantovani",
+        title: "Is Typological (Dis)Similarity a Predictor of Article Use in Italian L2? Evidence from 35 L1s",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "10:45 - 11:15",
+        speaker: "Réka Hajner",
+        title: "Performance in vowel discrimination depending on language dominance of Hungarian learners of English",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "11:45 - 12:15",
+        speaker: "Marco Simoni",
+        title: "Anaphora Resolution in Italian Mild Cognitive Impairment and Healthy Adults",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "12:15 - 12:45",
+        speaker: "Anastasia Parini, Anna Pietrzak, Emanuele Carcano, Mauro Viganò",
+        title: "First Assessment Tools for Aphasia in French and Italian Sign Languages: Development and Preliminary Data",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "12:45 - 13:15",
+        speaker: "Valeria Goretti, G. Stella, C. Liuzzi, E. Scalamato, G. Gagliardi",
+        title: "An Early Lexical Identification Test for Dyslexia in primary school children: First results of a new linguistically aware screening.",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "14:30 - 15:00",
+        speaker: "Sofia Tenti",
+        title: "Auditory-Perceptual Analysis in Children after Posterior Fossa Tumor Resection: A Comparison with Healthy Controls",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "15:00 - 15:30",
+        speaker: "Giulio Massari, Fanny Meunier, Raphaël Fargier",
+        title: "Meanings to sounds, and back: behavioral and neural correlates of iconicity in spoken production",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "17:00 - 17:30",
+        speaker: "Alicja Caban, Barbara Hemforth, Patrick Georg Grosz",
+        title: "Cognitive Dimensions of Non-Face Emoji Interpretation: Effects of Autistic Traits on Affective Processing",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "17:30 - 18:00",
+        speaker: "Lam Tran",
+        title: "Syntactic Repair and Reanalysis: Investigating P600 Differences through ERPs",
+        chair: "",
+        type: "presentation"
+      }
+    ],
+    posters: [
+      {
+        speaker: "Simone Roversi",
+        title: "Cross-linguistic influence in L3 acquisition: neural mechanisms, artificial language learning, and the role of memory systems"
+      },
+      {
+        speaker: "Eugenia Torre, Nicoletta Biondo",
+        title: "The Role of Response Times (RTs) in Understanding Naming mechanisms in Aphasia"
+      },
+      {
+        speaker: "Josefina Castillo Cerutti, Macarena Martínez-Cuitiño, Diana Bruno",
+        title: "Cognitive Reserve in Mid- to Late Bilinguals: Executive and Linguistic Performance"
+      },
+      {
+        speaker: "Andrea Russano, Elena Martinelli, Yuka Naito, Maria Ranù, Sabina Capellari, Chiara Meluzzi, Gloria Gagliardi",
+        title: "Affricate Production and Cognitive Decline: Acoustic Evidence in Mild Cognitive Impairment"
+      },
+      {
+        speaker: "Wency Wanxin LI",
+        title: "An ERP study of the distinction between pro and trace in Mandarin Chinese"
+      },
+      {
+        speaker: "Ali Tepsaev, Alina Minnigulova",
+        title: "ICA analysis of brain networks in healthy people during a language task"
+      },
+      {
+        speaker: "Bristi Dutta",
+        title: "Contextual Resolution of Homonyms in Bilingual Speakers: Behavioral Evidence from English, Bengali, and Hindi"
+      },
+      {
+        speaker: "Marcus Figura, Vittoria Cuteri, Giulia Minori, Gloria Gagliardi, Fabio Tamburini, Elisabetta Malaspina, Paola Gualandi, Francesca Rossi, Milena Moscano, Valentina Francia, Antonia Parmeggiani",
+        title: "Linguistic markers of anorexia nervosa: insights from an extended prospective case–control analysis"
+      },
+      {
+        speaker: "Ekaterina Volodina, Ardi Roelofs, Rianne A.J. Esselink, Saman R. Vinke, Vitória Piai",
+        title: "Verb Inflection Performance in Parkinson's Disease: Evidence from Error and Response Time Analyses"
+      },
+      {
+        speaker: "Leticia Lopez Camacho",
+        title: "ERP evidence on Verb–Verb Tense Agreement in Rioplatense Spanish"
+      },
+      {
+        speaker: "Aurora Zerilli",
+        title: "Error annotation in learner–chatbot interactions: A comparison of Italian EFL students with and without SLDs"
+      },
+      {
+        speaker: "Alice Stroppa, Luca Cilibrasi, Nicoletta Biondo",
+        title: "Predictors of MLU in children in immersive L2 schools"
+      }
+    ]
+  },
+  {
+    date: "29th January",
+    posterSessionName: "Poster Session I",
+    talks: [
+      {
+        time: "9:00 - 9:15",
+        speaker: "",
+        title: "Welcome & Introduction (IUSS)",
+        chair: "",
+        type: "break"
+      },
+      {
+        time: "9:15 - 10:15",
+        speaker: "Gillian Ramchand",
+        title: "Keynote Speaker",
+        chair: "",
+        type: "keynote"
+      },
+      {
+        time: "10:15 - 10:45",
+        speaker: "Holly Drayton",
+        title: "A telicity-based split-ergativity account of Symmetrical Voice in the Lower Baram languages of northern Borneo",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "10:45 - 11:15",
+        speaker: "Furkan Dikmen",
+        title: "Seemings and beliefs",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "11:45 - 12:15",
+        speaker: "Aikaterini Thomopoulou",
+        title: "Revisiting &-Subordinate clauses in Greek",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "12:15 - 12:45",
+        speaker: "Simone Diana Zamarlik",
+        title: "Non-syncretic case and gender mismatches in Polish across-the-board dependencies",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "12:45 - 13:15",
+        speaker: "Lennart Fritzsche, Sebastian Walter",
+        title: "Head nods don't always mean 'yes': Ambiguity in gestural responses to negative questions",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "14:30 - 15:30",
+        speaker: "Andrea Moro",
+        title: "Keynote Speaker",
+        chair: "",
+        type: "keynote"
+      },
+      {
+        time: "15:30 - 16:00",
+        speaker: "Florence Zhang-Yukun",
+        title: "Silent YEAR Revisited: The Mandarin Case",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "16:00 - 16:30",
+        speaker: "Zhongyang YU",
+        title: "Head Movement of clitic in PP: in a long and pied-piping style",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "17:30 - 18:00",
+        speaker: "Iva Kovač",
+        title: "Scope in NPI Licensing: Movement, Spell-Out, Disambiguation",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "18:00 - 18:30",
+        speaker: "Veronica Girolami",
+        title: "Reassessing diagnostics of unaccusativity: the case of ne-cliticization in Italian",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "20:00",
+        speaker: "",
+        title: "Social Dinner at Horti Bistrot",
+        chair: "",
+        type: "break"
+      }
+    ],
+    posters: [
+      {
+        speaker: "Lukáš Žoha",
+        title: "From Pieces to Peaches: Containment and Syncretism in Czech Quantity Expressions"
+      },
+      {
+        speaker: "Ema Štarkl, Maruša Brežnik Dornik",
+        title: "Us against the majority: What the Slovene genitive-of-quantification clitic reveals about the structure of quantifier expressions"
+      },
+      {
+        speaker: "Milo Spanyol Woods",
+        title: "Post-syntactic lowering in English negation"
+      },
+      {
+        speaker: "Cecilia Fernández-Altonaga",
+        title: "Markers of predication in Basque and beyond"
+      },
+      {
+        speaker: "Siming Liu",
+        title: "Revisiting Mandarin Chinese VP-fronting: Insights for a unified theory of phrasal movement"
+      },
+      {
+        speaker: "Yunwen Chen, Adam Cheng",
+        title: "Argument Ellipsis and Its Implication in Qiang"
+      },
+      {
+        speaker: "Biswanath Dash",
+        title: "Denominal Verbalization in Santali: Evidence for Compositionality"
+      },
+      {
+        speaker: "Maria Berkovich",
+        title: "There is no island repair, except when there is"
+      },
+      {
+        speaker: "JK Subramony",
+        title: "Inherent Complement Verbs in Avatime"
+      },
+      {
+        speaker: "Irene Macazaga",
+        title: "Questioning movement prior to deletion: multiple fragments of clausal ellipsis in Basque"
+      }
+    ]
+  },
+  {
+    date: "30th January",
+    posterSessionName: "Poster Session II",
+    talks: [
+      {
+        time: "9:00 - 10:00",
+        speaker: "Vieri Samek-Lodovici",
+        title: "Keynote Speaker",
+        chair: "",
+        type: "keynote"
+      },
+      {
+        time: "10:00 - 10:30",
+        speaker: "Shun Yamazaki",
+        title: "Japanese Right Dislocations of Adjuncts",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "10:30 - 11:00",
+        speaker: "Takato Yamamoto",
+        title: "Investigation of the Interaction between Reconstruction and Resumptive Pronouns in Japanese Relatives",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "11:30 - 12:00",
+        speaker: "Elizaveta Khakhalina",
+        title: "What strong evidence! Russian Sign Language exclamatives as a case study in the debate",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "12:00 - 12:30",
+        speaker: "Anastasiia Krainova",
+        title: "Case Matching and Positional Licensing in Russian Free Relative Clauses",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "12:30 - 13:00",
+        speaker: "Joshua R. Denney",
+        title: "An acoustic analysis of high tone spread in Apsáalooke (Crow)",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "14:15 - 15:15",
+        speaker: "Anna-Maria Di Sciullo",
+        title: "Keynote Speaker",
+        chair: "",
+        type: "keynote"
+      },
+      {
+        time: "15:15 - 15:45",
+        speaker: "Sophia McGranaghan",
+        title: "Human and LLM processing of scope ambiguities in English ditransitives",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "15:45 - 16:15",
+        speaker: "Yasaman Sanei",
+        title: "Asymmetric patterns in licensing left branch extraction: a study on Persian",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "17:15 - 17:45",
+        speaker: "Alexandrine Dunlap",
+        title: "Negation Strategy as a Diagnostic for Movement",
+        chair: "",
+        type: "presentation"
+      },
+      {
+        time: "17:45 - 18:00",
+        speaker: "",
+        title: "Concluding Remarks + Presentation SOLE",
+        chair: "",
+        type: "break"
+      }
+    ],
+    posters: [
+      {
+        speaker: "Adæmrys Chihjen Cheng",
+        title: "On Yami Wh-Questions: Movement or In-situ?"
+      },
+      {
+        speaker: "Anastasia Parini, Beatrice Giustolisi, Maria Teresa Guasti",
+        title: "Relative clauses comprehension in school-aged deaf LIS L1 and hearing LIS L2 signers"
+      },
+      {
+        speaker: "Fabian Zöfelt",
+        title: "Do modal particles improve extraction from factive islands in German?"
+      },
+      {
+        speaker: "Franziska Keller",
+        title: "Fake resumptive pronouns in Jordanian Arabic relative clauses"
+      },
+      {
+        speaker: "Serra Comert",
+        title: "Taking Context into Account: An Investigation of Null Arguments and Coherence Relations"
+      },
+      {
+        speaker: "Maoyu LIU",
+        title: "Is Quantifier Raising a Diagnostic for Finiteness in Mandarin Chinese?"
+      },
+      {
+        speaker: "Anna V. Prokopeva",
+        title: "Not Only by the Resolution Rules: Verb Agreement with Complex Subjects Conjoined by Correlative Coordinators in Russian"
+      },
+      {
+        speaker: "Nagihan Lüle, Ümit Atlamaz",
+        title: "Movement & Generalized Verb Stranding Ellipsis in Turkish"
+      },
+      {
+        speaker: "Akinloluwa Ajayi",
+        title: "Prosodic Restructuring in Baangi Nominal Pluralization"
+      },
+      {
+        speaker: "Hülya Koç, Giuliano Bocci",
+        title: "Reading Across Orthographies: A Cross-Linguistic Study of Morphological Processing in English and Turkish"
+      }
+    ]
+  }
+];
+
+const heroImage = "/images/camino.jpg";
+---
+
+<Layout title="Preliminary Programme">
+  <div class="min-h-screen bg-stone-950 relative">
+    <!-- Hero Section -->
+    <div class="relative h-[50vh] w-full overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-stone-950/50 to-stone-950 z-10"></div>
+      
+      <img
+        src={heroImage}
+        alt="Preliminary Programme Hero"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute bottom-0 left-0 right-0 p-8 z-20">
+        <Container>
+          <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Preliminary Programme</h1>
+          <p class="text-xl text-gray-300">Slots are still subject to variability</p>
+        </Container>
+      </div>
+    </div>
+
+    <Container>
+      <div class="py-12 space-y-16">
+        {programData.map((day) => {
+          return (
+            <div class="space-y-6">
+              <div class="border-b border-amber-300/30 pb-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">{day.date}</h2>
+              </div>
+
+              <!-- Desktop Table View -->
+              <div class="hidden lg:block overflow-x-auto">
+                <table class="w-full border-collapse">
+                  <thead>
+                    <tr class="border-b border-stone-700">
+                      <th class="text-left py-4 px-4 text-amber-300 font-semibold text-sm uppercase tracking-wider">Time</th>
+                      <th class="text-left py-4 px-4 text-amber-300 font-semibold text-sm uppercase tracking-wider">Speaker</th>
+                      <th class="text-left py-4 px-4 text-amber-300 font-semibold text-sm uppercase tracking-wider">Title</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {(day.talks || []).map((session, idx) => (
+                    <tr 
+                      class={`
+                        border-b border-stone-800/50 transition-colors
+                        ${session.type === 'keynote' ? 'bg-amber-500/10 hover:bg-amber-500/15' : ''}
+                        ${session.type === 'break' ? 'bg-stone-800/30 hover:bg-stone-800/40' : ''}
+                        ${session.type === 'presentation' ? 'hover:bg-stone-800/30' : ''}
+                      `}
+                    >
+                      <td class="py-4 px-4 text-stone-300 font-mono text-sm whitespace-nowrap">
+                        {session.time}
+                      </td>
+                      <td class="py-4 px-4 text-white">
+                        {session.speaker ? (
+                          <span class="font-medium">{session.speaker}</span>
+                        ) : (
+                          <span class="text-stone-500 italic">—</span>
+                        )}
+                      </td>
+                      <td class="py-4 px-4 text-stone-200">
+                        {session.type === 'keynote' ? (
+                          <span class="font-bold text-amber-300">{session.title}</span>
+                        ) : (
+                          <span class={session.type === 'break' ? 'italic text-stone-400' : ''}>
+                            {session.title}
+                          </span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Mobile Card View -->
+            <div class="lg:hidden space-y-4">
+              {(day.talks || []).map((session, idx) => (
+                <div 
+                  class={`
+                    border border-stone-700 rounded-lg p-4 transition-all
+                    ${session.type === 'keynote' ? 'bg-amber-500/10 border-amber-500/30' : ''}
+                    ${session.type === 'break' ? 'bg-stone-800/30 border-stone-600' : ''}
+                    ${session.type === 'presentation' ? 'bg-stone-900/50 hover:bg-stone-800/50' : ''}
+                  `}
+                >
+                  <div class="flex items-start justify-between mb-3">
+                    <span class="text-amber-300 font-mono text-sm font-semibold">{session.time}</span>
+                    {session.type === 'keynote' && (
+                      <span class="bg-amber-500/20 text-amber-300 text-xs px-2 py-1 rounded-full font-semibold">Keynote</span>
+                    )}
+                    {session.type === 'break' && (
+                      <span class="bg-stone-700 text-stone-400 text-xs px-2 py-1 rounded-full italic">Break</span>
+                    )}
+                  </div>
+                  
+                  <div class="space-y-2">
+                    {session.speaker && (
+                      <div>
+                        <span class="text-xs text-stone-400 uppercase tracking-wide">Speaker</span>
+                        <p class="text-white font-medium mt-1">{session.speaker}</p>
+                      </div>
+                    )}
+                    
+                    <div>
+                      <span class="text-xs text-stone-400 uppercase tracking-wide">Title</span>
+                      <p class={`
+                        mt-1
+                        ${session.type === 'keynote' ? 'text-amber-300 font-bold' : ''}
+                        ${session.type === 'break' ? 'text-stone-400 italic' : 'text-stone-200'}
+                      `}>
+                        {session.title}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <!-- Poster Sessions Section -->
+            {day.posters && day.posters.length > 0 && (
+              <div class="mt-12 space-y-6">
+                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+                  <div>
+                    <p class="text-sm uppercase tracking-[0.25em] text-amber-300">Sala del Comune</p>
+                    <h3 class="text-2xl font-bold text-white mt-2">
+                      {day.posterSessionName || "Poster Sessions"}
+                    </h3>
+                  </div>
+                </div>
+
+                <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                  {day.posters.map((poster) => (
+                    <div class="bg-stone-900/70 border border-white/5 rounded-xl p-4 backdrop-blur-xl shadow-2xl shadow-black/30 transition-all duration-300 hover:-translate-y-1 hover:border-white/15">
+                      <p class="text-sm font-semibold text-white">{poster.title}</p>
+                      <p class="text-xs text-gray-400 mt-2">{poster.speaker}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            </div>
+          );
+        })}
+      </div>
+    </Container>
+    
+    <!-- Logos banner -->
+    <div class="mt-12 flex justify-center pb-12">
+      <Banner />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  table {
+    min-width: 100%;
+  }
+  
+  /* Smooth scrolling for horizontal table */
+  .overflow-x-auto {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(180, 83, 9, 0.5) transparent;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar-thumb {
+    background-color: rgba(180, 83, 9, 0.5);
+    border-radius: 4px;
+  }
+  
+  .overflow-x-auto::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(180, 83, 9, 0.7);
+  }
+</style>
+
