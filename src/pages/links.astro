@@ -1,0 +1,121 @@
+---
+import Container from "@components/container.astro";
+import Layout from "@layouts/Layout.astro";
+import Link from "@components/ui/link.astro";
+import { changeLanguage } from "i18next";
+
+changeLanguage("en");
+
+const links = [
+  
+  {
+    title: "Programme",
+    description: "View the conference schedule",
+    href: "/preliminary-programme",
+    color: "bg-purple-50 border-purple-200 hover:bg-purple-100",
+    textColor: "text-purple-900",
+    external: false
+  },
+  {
+    title: "Color coding of the badges",
+    description: "Register for the main conference",
+    href: "https://docs.google.com/forms/d/e/1FAIpQLScOrSizOOlbaB3GmiDb5ZmSMLflmq1ne4_SEPes9gFzHKeiIg/viewform",
+    color: "bg-purple-50 border-purple-200 hover:bg-purple-100",
+    textColor: "text-purple-900",
+    external: false
+  },
+  {
+    title: "Conference Dinner's Menu",
+    description: "Thursday, 29 January",
+    href: "https://docs.google.com/forms/u/8/d/e/1FAIpQLSdyAIcgop_8HZvSyGSNfBMqLMxF1yucVp0eT96MAah66q73vA/viewform?usp=dialog",
+    color: "bg-purple-50 border-purple-200 hover:bg-purple-100",
+    textColor: "text-purple-900",
+    external: false
+  }
+];
+---
+
+<Layout title="ConSOLE34 Links">
+  <div class="min-h-screen bg-white flex items-center justify-center py-12 px-4">
+    <Container>
+      <div class="max-w-md w-full mx-auto">
+        <!-- Logo/Header -->
+        <div class="text-center mb-10">
+          <div class="flex justify-center items-center gap-3 mb-3">
+            <img src="/images/logos/logo.png" width="45" alt="Logo" />
+            <img src="/images/logos/logo_text.png" width="160" alt="ConSOLE34" />
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div class="space-y-3">
+          {links.map((link) => (
+            link.external ? (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={`group block w-full ${link.color} border-2 rounded-xl p-6 transition-all duration-200 hover:shadow-lg hover:scale-[1.01] active:scale-[0.99] cursor-pointer`}
+              >
+                <div class="flex items-center gap-4">
+                  <div class="flex-1 min-w-0">
+                    <h3 class={`${link.textColor} font-bold text-lg mb-1.5 group-hover:opacity-80 transition-opacity`}>
+                      {link.title}
+                    </h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">{link.description}</p>
+                    <div class="mt-2 flex items-center gap-1.5 text-xs text-gray-500">
+                      <span>Opens in new tab</span>
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
+                  </div>
+                  <svg class={`w-5 h-5 ${link.textColor} opacity-50 flex-shrink-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+            ) : (
+              <Link
+                href={link.href}
+                class={`group block w-full ${link.color} border-2 rounded-xl p-6 transition-all duration-200 hover:shadow-lg hover:scale-[1.01] active:scale-[0.99] cursor-pointer no-underline`}
+              >
+                <div class="flex items-center gap-4">
+                  <div class="flex-1 min-w-0">
+                    <h3 class={`${link.textColor} font-bold text-lg mb-1.5 group-hover:opacity-80 transition-opacity`}>
+                      {link.title}
+                    </h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">{link.description}</p>
+                  </div>
+                  <svg class={`w-5 h-5 ${link.textColor} opacity-50 flex-shrink-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </Link>
+            )
+          ))}
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-12 text-center">
+        </div>
+      </div>
+    </Container>
+  </div>
+</Layout>
+
+<style>
+  /* Ensure links don't have default link styling */
+  a {
+    text-decoration: none;
+  }
+  
+  /* Smooth animations */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+</style>
+
