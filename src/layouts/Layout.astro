@@ -11,16 +11,16 @@ import i18next from "i18next";
 export interface Props {
 	title?: string;
 	lang?: string;
+	ogImage?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
-const resolvedImageWithDomain = new URL(
-	"/meta/opengraph.png",
-	Astro.site,
-).toString();
+const { title, lang = null, ogImage } = Astro.props;
 
-const { title, lang = null } = Astro.props;
+const resolvedImageWithDomain = ogImage
+	? new URL(ogImage, Astro.site).toString()
+	: new URL("/meta/opengraph.png", Astro.site).toString();
 
 const makeTitle = title
 	? `${title}`
