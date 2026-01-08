@@ -11,13 +11,7 @@ const currentPath = Astro.url.pathname;
 const isWorkshop = currentPath.includes("/workshop") || currentPath.endsWith("workshop");
 
 export const menuitems = [
-   {
-    title: "Registration<br/>forms",
-    children: [
-      { title: "Main session", path: "https://docs.google.com/forms/d/e/1FAIpQLScOrSizOOlbaB3GmiDb5ZmSMLflmq1ne4_SEPes9gFzHKeiIg/viewform" },
-      { title: "Workshop", path: "https://docs.google.com/forms/u/8/d/e/1FAIpQLSdyAIcgop_8HZvSyGSNfBMqLMxF1yucVp0eT96MAah66q73vA/viewform?usp=dialog" },
-    ],
-  },
+   
   {
     title: "Keynote speakers",
     path: "/speakers",
@@ -179,7 +173,7 @@ export const menuitems = [
 		  </Link>
 		  
 			<Link
-				href={localizePath("/preliminary-programme")}
+				href={localizePath("/program")}
 				style="hover"
 				class="md:px-3 md:py-2 leading-6"
 				x-data="{ isActive: false }"
@@ -195,8 +189,8 @@ export const menuitems = [
 					document.addEventListener('astro:page-load', checkPath);
 				}`}
 				x-bind:class="{ 'bg-gray-200 dark:bg-gray-600': isActive }"
-				data-path="/preliminary-programme">
-				{t("Programme")}
+				data-path="/program">
+				{t("Program")}
 			</Link>
 		</div>
 	</nav>

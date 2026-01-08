@@ -25,6 +25,8 @@ const fields = [
   { id: "disorders", name: "Language Disorders", color: "bg-green-900" },
   { id: "erp", name: "Electrophysiology and ERPs", color: "bg-purple-500" },
   { id: "cogneuro", name: "Cognitive Neuroscience", color: "bg-pink-900" },
+  { id: "neuroimaging", name: "Neuroimaging", color: "bg-purple-800" },
+
 ];
 
 const programData = [
@@ -142,6 +144,12 @@ const programData = [
         field: []
       },
       { 
+        image: "/images/slides/main/ramchand.png", 
+        affiliation: "9:15-10:15", 
+        title: "Sala del Camino",
+        field: []
+      },
+      { 
         image: "/images/slides/main/drayton.png", 
         affiliation: "10:15-10:45", 
         title: "Sala del Camino",
@@ -166,6 +174,12 @@ const programData = [
         field: ["syntax"]
       },
       { 
+        image: "/images/slides/main/zamarlik.png", 
+        affiliation: "12:15-12:45", 
+        title: "Sala del Camino",
+        field: ["syntax"]
+      },
+      { 
         image: "/images/slides/main/fritzsche.png", 
         affiliation: "12:45-13:15", 
         title: "Sala del Camino",
@@ -174,6 +188,12 @@ const programData = [
       { 
         image: "/images/slides/main/lunch.png", 
         affiliation: "13:15-14:30", 
+        title: "Sala del Comune",
+        field: []
+      },
+      { 
+        image: "/images/slides/main/moro.png", 
+        affiliation: "14:30-15:30", 
         title: "Sala del Comune",
         field: []
       },
@@ -243,6 +263,12 @@ const programData = [
         field: ["syntax"]
       },
       { 
+        image: "/images/slides/main/zofelt.png", 
+        affiliation: "12:00-12:30", 
+        title: "Sala del Camino",
+        field: ["syntax","pragmatics"]
+      },
+      { 
         image: "/images/slides/main/denney.png", 
         affiliation: "12:30-13:00", 
         title: "Sala del Camino",
@@ -251,6 +277,12 @@ const programData = [
       { 
         image: "/images/slides/main/lunch.png", 
         affiliation: "13:00-14:15", 
+        title: "Sala del Comune",
+        field: []
+      },
+      { 
+        image: "/images/slides/main/disciullo.png", 
+        affiliation: "14:15-15:15", 
         title: "Sala del Comune",
         field: []
       },
@@ -268,8 +300,8 @@ const programData = [
       },
       
       { 
-        image: "/images/slides/main/coffee.png", 
-        affiliation: "11:00-11:30", 
+        image: "/images/slides/main/posters.png", 
+        affiliation: "16:15-17:15", 
         title: "Sala del Comune",
         field: []
       },
@@ -296,22 +328,63 @@ const posterSessions = [
     name: "Workshop's Posters",
     location: "Sala del Comune",
     posters: [
-      {
-        title: "Neural Encoding of Agreement in Early Bilinguals",
-        author: "Elena Conti",
-        field: ["neurolinguistics", "bi-ling"],
-      },
-      {
-        title: "Corpus Signals for Tracking Morphosyntactic Drift",
-        author: "Luis Ferreira",
-        field: ["corpus-ling", "syntax"],
-      },
-      {
-        title: "Predictive Coding in Infant Speech Perception",
-        author: "Mina Al-Hassan",
-        field: ["language-acquisition", "phonology"],
-      },
-    ],
+  {
+    title: "Cross-linguistic influence in L3 acquisition: neural mechanisms, artificial language learning, and the role of memory systems",
+    author: "Simone Roversi",
+    field: ["lang-proc", "neuroimaging"],
+  },
+  {
+    title: "The Role of Response Times (RTs) in Understanding Naming mechanisms in Aphasia",
+    author: "Eugenia Torre, Nicoletta Biondo",
+    field: ["language-disorders", "cogneuro"],
+  },
+  {
+    title: "Cognitive Reserve in Mid- to Late Bilinguals: Executive and Linguistic Performance",
+    author: "Josefina Castillo Cerutti, Macarena Martínez-Cuitiño, Diana Bruno",
+    field: ["bi-ling"],
+  },
+  {
+    title: "Affricate Production and Cognitive Decline: Acoustic Evidence in Mild Cognitive Impairment",
+    author: "Andrea Russano, Elena Martinelli, Yuka Naito, Maria Ranù, Sabina Capellari, Chiara Meluzzi, Gloria Gagliardi",
+    field: ["lang-proc", "disorders"],
+  },
+  {
+    title: "An ERP study of the distinction between pro and trace in Mandarin Chinese",
+    author: "Wency Wanxin Li",
+    field: ["lang-proc", "neuroimaging"],
+  },
+  {
+    title: "ICA analysis of brain networks in healthy people during a language task",
+    author: "Ali Tepsaev, Alina Minnigulova",
+    field: ["neuroimaging"],
+  },
+  {
+    title: "Contextual Resolution of Homonyms in Bilingual Speakers: Behavioral Evidence from English, Bengali, and Hindi",
+    author: "Bristi Dutta",
+    field: ["lang-proc", "bi-ling"],
+  },
+  {
+    title: "Linguistic markers of anorexia nervosa: insights from an extended prospective case–control analysis",
+    author: "Marcus Figura, Vittoria Cuteri, Giulia Minori, Gloria Gagliardi, Fabio Tamburini, Elisabetta Malaspina, Paola Gualandi, Francesca Rossi, Milena Moscano, Valentina Francia, Antonia Parmeggiani",
+    field: ["lang-proc", "computational-ling"],
+  },
+  {
+    title: "Verb Inflection Performance in Parkinson’s Disease: Evidence from Error and Response Time Analyses",
+    author: "Ekaterina Volodina, Ardi Roelofs, Rianne A.J. Esselink, Saman R. Vinke, Vitória Piai",
+    field: ["cogneuro", "lang-proc"],
+  },
+  {
+    title: "Error annotation in learner–chatbot interactions: A comparison of Italian EFL students with and without SLDs",
+    author: "Aurora Zerilli",
+    field: ["lang-proc"],
+  },
+  {
+    title: "Predictors of MLU in children in immersive L2 schools",
+    author: "Alice Stroppa, Luca Cilibrasi, Nicoletta Biondo",
+    field: ["bi-ling"],
+  },
+]
+,
   },
   {
     day: "Thursday, 29 January",
@@ -355,11 +428,6 @@ const posterSessions = [
     field: ["syntax", "morphology"],
   },
   {
-    title: "There is no island repair, except when there is",
-    author: "Maria Berkovich",
-    field: ["syntax"],
-  },
-  {
     title: "Inherent Complement Verbs in Avatime",
     author: "JK Subramony",
     field: ["syntax", "semantics"],
@@ -369,30 +437,67 @@ const posterSessions = [
     author: "Irene Macazaga",
     field: ["syntax", "phonology"],
   },
-],
+]
+,
   },
   {
     day: "Friday, 30 January",
-    time: "15:45 – 16:45",
+    time: "16:15 – 17:15",
     name: "Posters Session II",
     location: "Sala del Comune",
     posters: [
-      {
-        title: "Temporal Predictions in EEG Speech Entrainment",
-        author: "Alessia Romano",
-        field: ["erp", "exp"],
-      },
-      {
-        title: "Acoustic Landmarks in Emerging Sign Languages",
-        author: "Marina Viteri",
-        field: ["phonology", "psycholing"],
-      },
-      {
-        title: "Lexical Access Under High Cognitive Load",
-        author: "Gabriel Soto",
-        field: ["lang-proc", "neurolinguistics"],
-      },
-    ],
+  {
+    title: "On Yami Wh-Questions: Movement or In-situ?",
+    author: "Adæmrys Chihjen Cheng",
+    field: ["syntax"],
+  },
+  {
+    title: "Relative clauses comprehension in school-aged deaf LIS L1 and hearing LIS L2 signers",
+    author: "Anastasia Parini, Beatrice Giustolisi, Maria Teresa Guasti",
+    field: ["syntax", "language-acquisition"],
+  },
+  {
+    title: "Fake resumptive pronouns in Jordanian Arabic relative clauses",
+    author: "Franziska Keller",
+    field: ["syntax", "morphology"],
+  },
+  {
+    title: "Taking Context into Account: An Investigation of Null Arguments and Coherence Relations",
+    author: "Serra Comert",
+    field: ["semantics", "pragmatics"],
+  },
+  {
+    title: "Is Quantifier Raising a Diagnostic for Finiteness in Mandarin Chinese?",
+    author: "Maoyu Liu",
+    field: ["syntax", "semantics"],
+  },
+  {
+    title: "Not Only by the Resolution Rules: Verb Agreement with Complex Subjects Conjoined by Correlative Coordinators in Russian",
+    author: "Anna V. Prokopeva",
+    field: ["syntax"],
+  },
+  {
+    title: "Movement & Generalized Verb Stranding Ellipsis in Turkish",
+    author: "Nagihan Lüle, Ümit Atlamaz",
+    field: ["syntax"],
+  },
+  {
+    title: "Prosodic Restructuring in Baangi Nominal Pluralization",
+    author: "Akinloluwa Ajayi",
+    field: ["phonology", "morphology"],
+  },
+  {
+    title: "Reading Across Orthographies: A Cross-Linguistic Study of Morphological Processing in English and Turkish",
+    author: "Hülya Koç, Giuliano Bocci",
+    field: ["morphology", "psycholing"],
+  },
+  {
+    title: "Case Matching and Positional Licensing in Russian Free Relative Clauses",
+    author: "Anastasiia Krainova",
+    field: ["syntax"],
+  },
+]
+,
   },
 ];
 
@@ -401,7 +506,7 @@ const heroImage = "/images/camino.jpg";
 ---
 
 <Layout title="Conference Program">
-  <div class="min-h-screen bg-stone-950 relative">
+  <div class="min-h-screen bg-stone-950 relative pb-20">
     <!-- Hero Section -->
     <div class="relative h-[60vh] w-full overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-b from-transparent via-stone-950/50 to-stone-950 z-10"></div>
@@ -495,10 +600,7 @@ const heroImage = "/images/camino.jpg";
               
             </p>
           </div>
-          <div class="flex items-center gap-2 text-sm text-gray-400">
-            <span class="w-2 h-2 rounded-full bg-amber-300 animate-pulse"></span>
-            Tap a card to discover the mix of titles, authors, and domains.
-          </div>
+          
         </div>
 
         <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -515,7 +617,7 @@ const heroImage = "/images/camino.jpg";
                 </div>
               </div>
 
-              <div class="mt-6 space-y-4 max-h-64 overflow-y-auto scrollbar-hide poster-list">
+              <div class="mt-6 space-y-4 poster-list">
                 {session.posters.map((poster) => (
                   <div
                     class="poster-entry bg-white/5 border border-white/5 rounded-xl p-4 transition-all duration-300 hover:bg-white/10 hover:border-white/20"
