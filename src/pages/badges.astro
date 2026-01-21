@@ -1,0 +1,123 @@
+---
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Layout from "@layouts/Layout.astro";
+import { changeLanguage } from "i18next";
+
+changeLanguage("en");
+
+const badgeColors = [
+  {
+    field: "Pragmatician",
+    color: "green",
+    bgColor: "bg-green-500",
+    borderColor: "border-green-600",
+    textColor: "text-green-900",
+    lightBg: "bg-green-50",
+    lightBorder: "border-green-200",
+  },
+  {
+    field: "Semanticist",
+    color: "light blue",
+    bgColor: "bg-sky-400",
+    borderColor: "border-sky-500",
+    textColor: "text-sky-900",
+    lightBg: "bg-sky-50",
+    lightBorder: "border-sky-200",
+  },
+  {
+    field: "Syntactician",
+    color: "red",
+    bgColor: "bg-red-500",
+    borderColor: "border-red-600",
+    textColor: "text-red-900",
+    lightBg: "bg-red-50",
+    lightBorder: "border-red-200",
+  },
+  {
+    field: "Psycholinguist",
+    color: "fuchsia",
+    bgColor: "bg-fuchsia-500",
+    borderColor: "border-fuchsia-600",
+    textColor: "text-fuchsia-900",
+    lightBg: "bg-fuchsia-50",
+    lightBorder: "border-fuchsia-200",
+  },
+  {
+    field: "Phonologist",
+    color: "purple",
+    bgColor: "bg-purple-500",
+    borderColor: "border-purple-600",
+    textColor: "text-purple-900",
+    lightBg: "bg-purple-50",
+    lightBorder: "border-purple-200",
+  },
+  {
+    field: "Computational Linguist",
+    color: "yellow",
+    bgColor: "bg-yellow-400",
+    borderColor: "border-yellow-500",
+    textColor: "text-yellow-900",
+    lightBg: "bg-yellow-50",
+    lightBorder: "border-yellow-200",
+  },
+  {
+    field: "Morphologist",
+    color: "orange",
+    bgColor: "bg-orange-500",
+    borderColor: "border-orange-600",
+    textColor: "text-orange-900",
+    lightBg: "bg-orange-50",
+    lightBorder: "border-orange-200",
+  },
+];
+---
+
+<Layout title="Badge Color Coding">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Badge Color Coding</Fragment>
+      <Fragment slot="desc">
+        Check the color of other people's badge as it represents their field of work or research interest ✨
+      </Fragment>
+    </Sectionhead>
+
+    <div class="py-12 sm:py-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {badgeColors.map((badge) => (
+          <div
+            class={`${badge.lightBg} ${badge.lightBorder} border-2 rounded-xl p-6 transition-all duration-200 hover:shadow-lg hover:scale-[1.02]`}
+          >
+            <div class="flex items-center gap-4 mb-4">
+              <div
+                class={`${badge.bgColor} ${badge.borderColor} border-2 w-16 h-16 rounded-lg flex-shrink-0 shadow-md`}
+              ></div>
+              <div class="flex-1">
+                <h3 class={`${badge.textColor} font-bold text-xl mb-1`}>
+                  {badge.field}
+                </h3>
+                <p class="text-gray-600 text-sm capitalize">{badge.color}</p>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-gray-200">
+              <p class="text-gray-700 text-sm">
+                Badge color: <span class="font-semibold capitalize">{badge.color}</span>
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      
+    </div>
+  </Container>
+</Layout>
+
+<style>
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+</style>
